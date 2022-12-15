@@ -1,13 +1,14 @@
 import React from 'react'
 import {
-  Flex, Box,FormControl,FormLabel,Input,InputGroup,InputRightElement,Stack,Button,Heading,Text,useColorModeValue,Center, HStack, VStack,
+  Flex, Box,FormControl,FormLabel,Input,InputGroup,InputRightElement,Stack,Button,Link,Heading,Text,useColorModeValue,Center, SimpleGrid, VStack, HStack,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { SiLinkedin } from 'react-icons/si';
 import { FcGoogle } from 'react-icons/fc';
-import { Link, NavLink } from 'react-router-dom';
-export const Login = ({key_id,description,des_link,create_account}) => {
+// import { Link } from 'react-router-dom';
+
+export const SignUpCom = () => {
   const [showPassword, setShowPassword] = useState(false);
   return (
     <Flex justify={"center"} align={"center"} mt={0} boxShadow='dark-md'   borderBottomRightRadius={7} 
@@ -22,9 +23,9 @@ export const Login = ({key_id,description,des_link,create_account}) => {
         <Heading fontSize={'24px'} fontWeight mt={5} pl={7} textAlign={"start"}>
          Login
         </Heading>
-       <Center m={0}p={0}> <Box  w={"85%"} m={1} border={"2px dashed"} borderColor='red.300' borderRadius={3}>
-        <Text p={1} w={"fit-content"} textAlign="start" fontSize={'14px'} bg={"red.100"} color={'#3C4858'}>
-        {description}<NavLink style={{color: '#138ae3'}} to={des_link}>Here</NavLink>
+       <Center m={0}P={0}> <Box w={"80%"} m={1} border={"2px dashed"} borderColor='red.300' borderRadius={3}>
+        <Text p={1} w={"fit-content"} textAlign="start" fontSize={'14PX'} bg={"red.100"} color={'#3C4858'}>
+        If you are a company looking to hire interns, please login as a company by clicking . <Link  color={'blue.400'}>Here.</Link>
         </Text>
         </Box>
         </Center>
@@ -41,6 +42,10 @@ export const Login = ({key_id,description,des_link,create_account}) => {
         </Button>
         <Text m={0} p={0}  fontWeight={"semibold"} color="#999999" textAlign={"center"}>OR</Text>
         <FormControl m={0} p={0} >
+        <FormControl m={0} id="name" isRequired>
+            <FormLabel>Full name</FormLabel>
+            <Input type="text" />
+          </FormControl>
           <FormControl id="email" isRequired>
             <FormLabel>Email address</FormLabel>
             <Input type="email" />
@@ -61,18 +66,19 @@ export const Login = ({key_id,description,des_link,create_account}) => {
             </InputGroup>
           </FormControl>
           <Stack spacing={10} pt={8}>
-            <Button colorScheme='red' color={"red.500"} variant='outline'>LOGIN</Button>
+            <Button colorScheme='red' variant='outline'>LOGIN</Button>
           </Stack>
           </FormControl>
-          <Box flex={1}><Link><Text color={"#138ae3"}>Forgotten Password?</Text></Link></Box>
+          <Box flex={1}><Link><Text color={"blue.600"}>Forgotten Password?</Text></Link></Box>
           <HStack align={"center"} justify={"center"} >
             <Box><Text>Don't have an account?</Text></Box>
-            <Box>  <Text color={"#138ae3"}><Link to={create_account}>Create Account</Link></Text></Box>     
+            <Box>  <Text color={"blue.600"}><Link>Create Account</Link></Text></Box>     
           </HStack>
           </Stack>
       </Box>
     </Stack>
   </Flex>
-
   )
 }
+
+
