@@ -1,7 +1,6 @@
 import { Box,  Stack, Tab, TabList, TabPanel, TabPanels, Tabs, useColorModeValue } from '@chakra-ui/react'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Footer } from '../Components/Footer'
 import { Login } from '../Components/Login'
 
 const LoginData =[
@@ -40,7 +39,6 @@ const LoginPage = () => {
             </TabPanels>
         </Tabs>
         </Stack>
-        <Footer/>
     </Box>
   )
 }

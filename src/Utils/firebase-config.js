@@ -18,3 +18,4 @@ export const UserAuth =getAuth(Userapp);
 export const Userdb = getFirestore(Userapp)
 export const UserStorage = getStorage(Userapp);
 export const Googleprovider = new GoogleAuthProvider(Userapp);
+export const db = getFirestore(Userapp)
