@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   Flex, Box,FormControl,FormLabel,Input,InputGroup,InputRightElement,Stack,Button,Heading,Text,useColorModeValue,Center, SimpleGrid, VStack, HStack,
 } from '@chakra-ui/react';
@@ -7,7 +7,8 @@ import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { SiLinkedin } from 'react-icons/si';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
-import { createUserWithEmailAndPassword, GoogleAuthProvider,  signInWithPopup } from 'firebase/auth';
+import { createUserWithEmailAndPassword, GoogleAuthProvider,  onAuthStateChanged,  signInWithPopup } from 'firebase/auth';
+import {getFirestore,setDoc,doc,collection,onSnapshot} from "firebase/firestore"
 import {  toast } from 'react-toastify';
 import { UserAuth } from '../Utils/firebase-config';
 export const SignUp = () => {
@@ -37,8 +38,13 @@ const handleSubmit = (e) => {
     console.log(user,"user");
     setisSigninLoading(false);
     toast.success("Acoout created Sucessfull")
-    navigate("/login")
+    navigate("/")
     // ...
+  })
+ 
+  .then((userRecord) => {
+    // See the UserRecord reference doc for the contents of userRecord.
+    console.log('Successfully created new user:', userRecord.uid);
   })
   .catch((error) => {
     toast.error(error.message)
@@ -94,14 +100,14 @@ const handleChange = (e) => {
         </Box>
         </Center>
         <Stack p={4}>
-        <Button mb={[2,4,4]} w={'full'} variant={'outline'} leftIcon={<FcGoogle />}>
+        <Button mb={[2,4,4]} w={'full'} variant={'outline'} leftIcon={<FcGoogle />} onClick={handleGoogleSignIn}>
           <Center>
-            <Text>SIGNIN WITH  GOOGLE</Text>
+            <Text>REGISTER WITH GOOGLE</Text>
           </Center>
         </Button>
         <Button w={'full'} colorScheme={'messenger'} leftIcon={<SiLinkedin />}>
           <Center>
-            <Text>SIGNIN WITH LINKEDIN</Text>
+            <Text>REGISTER WITH LINKEDIN</Text>
           </Center>
         </Button>
         <Text m={0} p={0}  fontWeight={"semibold"} color="#999999" textAlign={"center"}>OR</Text>
@@ -133,7 +139,7 @@ const handleChange = (e) => {
             <Button colorScheme='red' variant='outline'  onClick={handleSubmit}>LOGIN</Button>
           </Stack>
           </FormControl>
-          <Box flex={1}><Link><Text color={"blue.600"}>Forgotten Password?</Text></Link></Box>
+          <Box flex={1}><Link><Text textAlign={"center"} color={"blue.600"}>Forgotten Password?</Text></Link></Box>
           <HStack align={"center"} justify={"center"} >
             <Box><Text>Don't have an account?</Text></Box>
             <Box>  <Text color={"blue.600"}><Link>Create Account</Link></Text></Box>     
