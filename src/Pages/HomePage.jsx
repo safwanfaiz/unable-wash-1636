@@ -37,7 +37,7 @@ export const HomePage = () => {
   },[])
   return (
     <div>HomePage
-      <Link to={"/login/student"}>Login</Link><Spacer/>
+      <Link to={"/login"}>Login</Link><Spacer/>
       <Link to={"/register/student"}>SignUp</Link>
       {avatar? <VStack>
       <Image w={150} src={userPhoto} alt={displayName}/>

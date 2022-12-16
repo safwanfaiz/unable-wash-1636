@@ -14,14 +14,14 @@ export const Login = ({key_id,description,des_link,create_account}) => {
   const [showPassword, setShowPassword] = useState(false);
   const [isSigninLoading, setisSigninLoading] = useState(false);
   const navigate =useNavigate();
-const [state, setState] = useState({
-email: "",
-password: "",
-})
-const {email, password,} = state;
-const provider = new GoogleAuthProvider();
-const handleGoogleSignIn = () => {
-signInWithPopup(UserAuth, provider)
+  const [state, setState] = useState({
+  email: "",
+  password: "",
+  })
+  const {email, password,} = state;
+  const provider = new GoogleAuthProvider();
+  const handleGoogleSignIn = () => {
+  signInWithPopup(UserAuth, provider)
   .then((result) => {
   
     const credential = GoogleAuthProvider.credentialFromResult(result);
