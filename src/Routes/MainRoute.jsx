@@ -14,9 +14,14 @@ export const MainRoute = () => {
      <Navbar/>
      <Routes>
       <Route path='/' element={<HomePage/>}/>
-      <Route path='/login/student' element={<LoginPage/>}/>
+      {/* <Route path='/login/student' element={<LoginPage/>}/>
       <Route path='/login/company' element={<LoginPage/>}/>
+      <Route path='/register/student' element={<SignUp/>}/> */}
+       <Route path='/login' element={<LoginPage/>}/>
+       <Route path='/student' element={<LoginPage/>}/>
+      <Route path='/company' element={<LoginPage/>}/>
       <Route path='/register/student' element={<SignUp/>}/>
+      
     </Routes>
     <Footer/>
      </>
