@@ -1,13 +1,11 @@
 import { useDispatch } from "react-redux";
 import "./CourseCard.css";
-import { useEffect, useState } from "react";
-import { addToCart } from "../Redux/App/action";
-// import axios from "axios";
-// import { Link } from "react-router-dom";
-export default function CourseCard({ data }) {
+import { ADD_DATA_TO_CART } from "../Redux/App/action";
+
+export const CourseCard =({ data }) =>{
   const dispatch = useDispatch();
   const handleAddToCart = (data) => {
-    dispatch(addToCart(data));
+    dispatch(ADD_DATA_TO_CART(data));
   };
   return (
     <>

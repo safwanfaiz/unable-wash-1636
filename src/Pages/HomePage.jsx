@@ -52,6 +52,7 @@ export const HomePage = () => {
       <Link to={"/login/student"}>Login</Link><Spacer/>
       <Link to={"/register/student"}>SignUp</Link>
       <Link to={"/cart"}>cart</Link><Spacer/>
+      <Link to={"/course"}>course</Link><Spacer/>
       {avatar? <VStack>
       <Image w={150} src={userPhoto} alt={displayName}/>
       <Text as={"b"} fontSize={"3xl"}>name:{displayName}</Text> <b></b>
