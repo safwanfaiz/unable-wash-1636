@@ -1,11 +1,10 @@
+
 import React, { memo, useEffect, useState } from "react";
 import "./navbar.css";
 import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import inter_job from "../Assets/experianceshalaV.jpg";
 import axios from "axios";
-
-
 
 function Navbar(props) {
   

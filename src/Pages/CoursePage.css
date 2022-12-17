@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600&family=Poppins:wght@300;400;500&family=Roboto:wght@100;300;400;500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+a {
+  text-decoration: none;
+}
+.img-container {
+    /* background-color: rgb(25,65,77); */
+    background: url(https://assets.interntheory.com/creative/courses/listpage/Course-bannerbg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .c-email-varify {
+    background-color: rgb(223, 30, 46);
+    height: 30px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 14px;
+  }
+  .c-email-varify > a {
+    color: white;
+    font-size: 14px;
+  }
+  .c-img {
+    width: 80%;
+    text-align: center;
+    display: block;
+    margin: auto;
+  }
+  .c-body-container {
+    background: rgb(248, 248, 248);
+    /* border: 1px solid red; */
+  }
+  .c-body-wrapper {
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    /* border: 1px solid red; */
+  }
+  .c-heading {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
+  .c-body-para {
+    font-weight: 300;
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .caurse-card-wrapper {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media screen and (max-width: 1140px) {
+    .caurse-card-wrapper {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .c-email-varify {
+      font-size: 10px;
+    }
+  }
+  @media screen and (max-width: 800px) {
+    .caurse-card-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media screen and (max-width: 500px) {
+    .caurse-card-wrapper {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  
