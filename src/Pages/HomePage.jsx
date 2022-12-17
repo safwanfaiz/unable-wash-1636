@@ -1,5 +1,5 @@
 import React from "react";
-// import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 import "./home.css";
 
@@ -115,7 +115,7 @@ function HomePage(props) {
                       placeholder="Search..."
                       id="search_post"
                     />
-                    {/* <NavLink to="/jobs"> */}
+                    <NavLink to="/jobs">
                       <button
                         id="search_btn_"
                         style={{
@@ -127,7 +127,7 @@ function HomePage(props) {
                       >
                         SEARCH
                       </button>
-                    {/* </NavLink> */}
+                    </NavLink>
                   </div>
                 </div>
               </form>

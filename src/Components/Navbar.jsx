@@ -2,44 +2,18 @@ import React, { memo, useEffect, useState } from "react";
 import "./navbar.css";
 import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-// import inter_job from "../../Assets/experianceshalaSquare.jpg";
+import inter_job from "../Assets/experianceshalaV.jpg";
 import axios from "axios";
 
-// document.getElementById("munu_btn").addEventListener("click",myFun)
 
-// function myFun(){
-//   alert("rohit kumar malav")
-// }
 
 function Navbar(props) {
-  const LoginUser = JSON.parse(localStorage.getItem("Login_id")) || "";
-  const AdminUser = JSON.parse(localStorage.getItem("Admin_id")) || "";
-  const [cartlength, setCartlength] = useState(0);
-  const [name, setName] = useState("SignIn");
-  console.log("AdminUser:", AdminUser);
-  // console.log("  LoginUser.fname:", );
+  
   const navigate = useNavigate();
   let logo = false;
   let sty;
   let stn;
-  // https://interandjob.netlify.app/viewandaplly/12
-  ////////////
-  const fetchname = () => {
-    if (LoginUser.fname) {
-      setName(LoginUser.fname);
-    } else if (AdminUser.fname) {
-      setName(AdminUser.fname);
-    }
-  };
-  const logout = () => {
-    if (LoginUser) {
-      navigate("/login");
-      localStorage.removeItem("Login_id");
-    } else {
-      navigate("/login");
-      localStorage.removeItem("Admin_id");
-    }
-  };
+ 
   const [menu, setMenu] = useState(logo);
 
   if (menu) {
@@ -57,28 +31,8 @@ function Navbar(props) {
       display: "none",
     };
   }
-  const homepage = () => {
-    if (LoginUser.isAuth) {
-      navigate("/dashboard");
-    } else if (AdminUser.isAuth) {
-      navigate("Admin/dashboard");
-    } else {
-      navigate("/");
-    }
-  };
-  useEffect(() => {
-    axios
-      .get("https://intertheory.onrender.com/cart")
-      .then((res) => {
-        setCartlength(res.data.length);
-      })
-      .catch((err) => {
-        console.log("err", err);
-      });
-  }, []);
-  useEffect(() => {
-    fetchname();
-  }, [LoginUser, AdminUser]);
+  
+ 
   return (
     <div className="parent">
       <nav>
@@ -94,7 +48,7 @@ function Navbar(props) {
           <div className="logo_btn">
             {/* add logo here */}
 
-            {/* <img className="logo" src={inter_job} /> */}
+            <img className="logo" src={inter_job} />
           </div>
           <div className="side_menu_list">
             <div className="visible_2 when_login">
@@ -522,7 +476,7 @@ function Navbar(props) {
                   <path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
                 </svg>
               </div>
-              <div className="side_menu_content" onClick={logout}>
+              <div className="side_menu_content" >
                 <p>Logout</p>
               </div>
             </div>
@@ -540,11 +494,11 @@ function Navbar(props) {
         <div className="logo_btn" id="logo_btn" style={stn}>
           {/* add logo here */}
 
-          {/* <img onClick={homepage} className="logo" src={inter_job} /> */}
+          <img  className="logo" src={inter_job} />
         </div>
         <div className="sign_btn after_login">
           <NavLink to="/login">
-            <button className="butt">{name ? name : "signup"}</button>
+            <button className="butt">signup</button>
           </NavLink>
         </div>
 
@@ -568,7 +522,7 @@ function Navbar(props) {
           </NavLink>
 
           <div className="total" id="total">
-            {cartlength}
+            {/* {cartlength} */}
           </div>
         </div>
         <div className="cart_btn when_login new_left">
