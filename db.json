@@ -422,15 +422,6 @@
   ],
   "cart": [
     {
-      "id": 2,
-      "image": "https://assets.interntheory.com/creative/courses/thumbnails/digital-marketing-course.png",
-      "name": "Digital Marketing Course",
-      "desc": "Learn the art of digital marketing. Sign up for this online ...",
-      "oldPrice": "11999",
-      "newPrice": "5999",
-      "emi": "EMI Starting at ₹ 343/month"
-    },
-    {
       "id": 1,
       "image": "https://assets.interntheory.com/creative/courses/thumbnails/it.jpg",
       "name": "IT Starter Pack (4 Courses)",
@@ -440,15 +431,6 @@
       "emi": "EMI Starting at ₹ 915/month"
     },
     {
-      "id": 3,
-      "image": "https://assets.interntheory.com/creative/courses/thumbnails/data-analytics-r-programming-course.png",
-      "name": "Data Analytics With R Programming Course",
-      "desc": "Learn data science online. Join this online data analytics c ...",
-      "oldPrice": "11999",
-      "newPrice": "5999",
-      "emi": "EMI Starting at ₹ 343/month"
-    },
-    {
       "id": 4,
       "image": "https://assets.interntheory.com/creative/courses/thumbnails/web-development-course.png",
       "name": "Web Development Course",
@@ -456,6 +438,15 @@
       "oldPrice": "7999",
       "newPrice": "3999",
       "emi": "EMI Starting at ₹ 229/month"
+    },
+    {
+      "id": 7,
+      "image": "https://assets.interntheory.com/creative/courses/thumbnails/advanced-excel-course.png",
+      "name": "Advanced Excel Course",
+      "desc": "Master MS Excel. Take the online ms excel course and learn t ...",
+      "oldPrice": "5999",
+      "newPrice": "2999",
+      "emi": "EMI Starting at ₹ 172/month"
     }
   ]
 }

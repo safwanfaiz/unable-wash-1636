@@ -2,38 +2,39 @@ import { Box, Button, ChakraProvider, Container, Divider, extendTheme, Flex, HSt
 import { TiDelete } from 'react-icons/ti';
 import { HiOutlineQuestionMarkCircle } from 'react-icons/hi';
 import React, { useEffect, useState } from 'react'
-const cartPriceData=[
-    {
-        "id":1,
-        "image":"https://assets.interntheory.com/creative/courses/thumbnails/data-analytics-r-programming-course.png",
-        "Discounted":12000,
-        "Price":10000,
-        "name":"course-test data"
-    },
-    {
-        "id":2,
-        "image":"https://assets.interntheory.com/creative/courses/thumbnails/data-analytics-r-programming-course.png",
-        "Discounted":12000,
-        "Price":10000,
-        "name":"course-test data"
-    },
-    {
-        "id":3,
-        "image":"https://assets.interntheory.com/creative/courses/thumbnails/data-analytics-r-programming-course.png",
-        "Discounted":12000,
-        "Price":10000,
-        "name":"course-test data"
-    },
-    {
-        "id":4,
-        "image":"https://assets.interntheory.com/creative/courses/thumbnails/data-analytics-r-programming-course.png",
-        "Discounted":12000,
-        "Price":10000,
-        "name":"course-test data"
-    }
-]
+// const CartData=[
+//     {
+//         "id":1,
+//         "image":"https://assets.interntheory.com/creative/courses/thumbnails/data-analytics-r-programming-course.png",
+//         "Discounted":12000,
+//         "Price":10000,
+//         "name":"course-test data"
+//     },
+//     {
+//         "id":2,
+//         "image":"https://assets.interntheory.com/creative/courses/thumbnails/data-analytics-r-programming-course.png",
+//         "Discounted":12000,
+//         "Price":10000,
+//         "name":"course-test data"
+//     },
+//     {
+//         "id":3,
+//         "image":"https://assets.interntheory.com/creative/courses/thumbnails/data-analytics-r-programming-course.png",
+//         "Discounted":12000,
+//         "Price":10000,
+//         "name":"course-test data"
+//     },
+//     {
+//         "id":4,
+//         "image":"https://assets.interntheory.com/creative/courses/thumbnails/data-analytics-r-programming-course.png",
+//         "Discounted":12000,
+//         "Price":10000,
+//         "name":"course-test data"
+//     }
+// ]
 
-const CartCard = () => {
+export const CartCard = ({CData}) => {
+    console.log(CData,"CData")
     const [TotalPrice, setTotalPrice] =useState(0)
     const [finalPrice, setFinalPrice] =useState(0)
     const [Offer, setOffer] =useState("")
@@ -52,23 +53,23 @@ const CartCard = () => {
             setFinalPrice(Totaldiscount)
         }
     }
-    useEffect(()=>{
-        cartPriceData && cartPriceData.map((item)=>
-        setTotalPrice((prev)=> prev+ item.Price)
-        )
-    },[])
+    // useEffect(()=>{
+    //     CData && CData.map((item)=>
+    //     setTotalPrice((prev)=> prev+ item.Price)
+    //     )
+    // },[])
   return (
    <Container minW={["full","fit-content",900]} p={7} boxShadow='base'   borderRadius={7}>
         <Stack p={3}  direction={{ base: 'column', md: 'row' }}>
             <Stack pr={7} flex={4}>
                 <Text  fontSize='2xl' color={"#3C4858"}  as='samp'>Cart</Text>
-                {cartPriceData.map((item)=>
+                {CData.map((item)=>
                 <VStack key={item.id}>
                 <HStack >
                     <Box as='button' variant='ghost' w={30} h={30}_active={{transform: "rotate(45deg)",}}>
                         <TiDelete size={30} color={"red"}/>
                     </Box>
-                    <Image w={120} h={68} src={item.image} alt={item.cartPriceData} />
+                    <Image w={120} h={68} src={item.image} alt={item.CData} />
                     <Box mt={-40}><Text m={0} as={"b"} fontSize={"2xl"}>{item.name}</Text></Box>
                     <Spacer w={100}/>
                     <HStack>
@@ -131,4 +132,4 @@ const CartCard = () => {
   )
 }
 
-export default CartCard
+

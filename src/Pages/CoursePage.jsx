@@ -1,20 +1,18 @@
-import { getCourses } from "../Redux/App/action";
-import CourseCard from "./CourseCard";
+import { GET_PRODUCTS_COMPANY } from "../Redux/App/action";
+
  import "./CoursePage.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import { CourseCard } from "./CourseCard";
 // import axios from "axios";
 export default function CoursePage() {
   const dispatch = useDispatch();
-  const data = useSelector((state) => state.AppReducer.courseData);
+  const data = useSelector((state) => state.AppReducer.products);
   
   useEffect(() => {
    if(data.length===0){
-    dispatch(getCourses())
-   }
-   
-  }, [dispatch]);
-// console.log(data)
+    dispatch(GET_PRODUCTS_COMPANY())
+   }}, []);
   return (
     <div className="c-container">
       <div className="c-wrapper">
@@ -37,8 +35,9 @@ export default function CoursePage() {
               </h6>
             </div>
             <div className="caurse-card-wrapper">
-              {data.length > 0 &&
-                data.map((item) => <CourseCard key={item.id} data={item} />)}
+              {data.length >=0 && data.map((item)=> 
+               <CourseCard key={item.id} data={item}  />
+              )}
             </div>
           </div>
         </div>

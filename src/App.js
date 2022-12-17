@@ -10,8 +10,8 @@ function App() {
   return (
     <div className="App">
       <MainRoute/>
-     <CoursePage/>
-     <CourseCard/>
+     {/* <CoursePage/>
+     <CourseCard/> */}
     </div>
   );
 }

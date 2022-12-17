@@ -1,9 +1,23 @@
 import * as types from "./actionTypes";
+import {GET_CART_DATA_FAILURE,
+  GET_CART_DATA_REQUEST,
+  GET_CART_DATA_SUCCESS,
+  GET_COURSE_DATA_FAILURE,
+  GET_COURSE_DATA_REQUEST,
+  GET_COURSE_DATA_SUCCESS,
+  POST_ADDTOCART_FAILURE,
+  POST_ADDTOCART_REQUEST,
+  POST_ADDTOCART_SUCCESS} from "../App/actionTypes"
 const initialState = {
     products: [],
     isLoading: false,
     isError: false,
     cart: [],
+    courseData: [],
+  searchData: [],
+  cartData: [],
+  applyData: {},
+  
   };
   
   export const reducer = (state = initialState, { type, payload }) => {
@@ -20,7 +34,7 @@ const initialState = {
       }
       case types.ADD_PRODUCT_REQUEST: 
         case types.ADD_PRODUCT_REQUEST_AGAIN:
-            case types.ADD_PRODUCT_CART_REQUEST: {
+            case types.ADD_CART_REQUEST: {
         return { ...state, isLoading: true, isError: false };
       }
   
@@ -28,18 +42,18 @@ const initialState = {
       case types.ADD_PRODUCT_SUCCESS_AGAIN:{
         return { ...state, isLoading: true, isError: false, products: payload };
       }
-      case types.ADD_PRODUCT_CART_SUCCESS:{
-        return { ...state, isLoading: true, isError: false, cart: payload };
+      case types.ADD_CART_SUCCESS:{
+        return { ...state, isLoading: false, isError: false, cart: payload };
       }  
       case types.ADD_PRODUCT_FAILURE: 
         case types.ADD_PRODUCT_FAILURE_AGAIN:
-            case types.ADD_PRODUCT_CART_FAILURE:{
+            case types.ADD_CART_FAILURE:{
         return { ...state, isLoading: false, isError: true };
       }
   
       case types.DELETE_PRODUCT_REQUEST: 
         case types.DELETE_PRODUCT_REQUEST_AGAIN:
-            case types.DELETE_PRODUCT_CART_REQUEST: {
+            case types.DELETE_CART_REQUEST: {
         return { isLoading: true, isError: false };
       }
   
@@ -47,15 +61,36 @@ const initialState = {
         case types.DELETE_PRODUCT_SUCCESS_AGAIN:{
         return { ...state, isLoading: false, basket: payload, isError: false };
       }
-      case types.DELETE_PRODUCT_CART_SUCCESS:{
+      case types.DELETE_CART_SUCCESS:{
         return { ...state, isLoading: false, cart: payload, isError: false };
       }
       case types.DELETE_PRODUCT_FAILURE: 
         case types.DELETE_PRODUCT_FAILURE_AGAIN:
-            case types.DELETE_PRODUCT_CART_FAILURE:  {
+            case types.DELETE_CART_FAILURE:  {
              return { isLoading: false, isError: true };
       }
-  
+
+
+      case GET_COURSE_DATA_REQUEST:
+      return { ...state, isLoading: true };
+    case GET_COURSE_DATA_SUCCESS:
+      return { ...state, isLoading: false, courseData: payload };
+    case GET_COURSE_DATA_FAILURE:
+      return { ...state, isLoading: false, isError: true };
+    case POST_ADDTOCART_REQUEST:
+      return { ...state, isLoading: false };
+    case POST_ADDTOCART_SUCCESS:
+      return { ...state, isLoading: true };
+    case POST_ADDTOCART_FAILURE:
+      return { ...state, isLoading: false, isError: true };
+    case GET_CART_DATA_REQUEST:
+      return { ...state, isLoading: true };
+    case GET_CART_DATA_SUCCESS:
+      return { ...state, isLoading: false, cartData: payload };
+    case GET_CART_DATA_FAILURE:
+      return { ...state, isLoading: false, isError: true };
+
+
       default:
         return state;
     }
