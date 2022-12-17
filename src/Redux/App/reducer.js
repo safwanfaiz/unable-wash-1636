@@ -1,62 +1,74 @@
-import * as types from "./actionTypes";
+import {
+  GET_CART_DATA_FAILURE,
+  GET_CART_DATA_REQUEST,
+  GET_CART_DATA_SUCCESS,
+  GET_COURSE_DATA_FAILURE,
+  GET_COURSE_DATA_REQUEST,
+  GET_COURSE_DATA_SUCCESS,
+  POST_ADDTOCART_FAILURE,
+  POST_ADDTOCART_REQUEST,
+  POST_ADDTOCART_SUCCESS,
+  SEARCH_DATA_FAILURE,
+  SEARCH_DATA_REQUEST,
+  SEARCH_DATA_SUCCESS,
+  GET_APPLY_DATA_FAILURE,
+  GET_APPLY_DATA_REQUEST,
+  GET_APPLY_DATA_SUCCESS,
+  DELETE_DETAILS_REQUEST,
+  DELETE_DETAILS_SUCCESS,
+  DELETE_DETAILS_FAILURE,
+} from "./actionTypes";
+
 const initialState = {
-    products: [],
-    isLoading: false,
-    isError: false,
-    cart: [],
-  };
-  
-  export const reducer = (state = initialState, { type, payload }) => {
-    switch (type) {
-      case types.GET_PRODUCTS_REQUEST:
-         {
-        return { ...state, isLoading: true, isError: false };
-      }
-      case types.GET_PRODUCTS_SUCCESS: {
-        return { ...state, isLoading: false, products: payload, isError: false };
-      }
-      case types.GET_PRODUCTS_FAILURE:{
-        return { ...state, isLoading: false, isError: true };
-      }
-      case types.ADD_PRODUCT_REQUEST: 
-        case types.ADD_PRODUCT_REQUEST_AGAIN:
-            case types.ADD_PRODUCT_CART_REQUEST: {
-        return { ...state, isLoading: true, isError: false };
-      }
-  
-      case types.ADD_PRODUCT_SUCCESS: 
-      case types.ADD_PRODUCT_SUCCESS_AGAIN:{
-        return { ...state, isLoading: true, isError: false, products: payload };
-      }
-      case types.ADD_PRODUCT_CART_SUCCESS:{
-        return { ...state, isLoading: true, isError: false, cart: payload };
-      }  
-      case types.ADD_PRODUCT_FAILURE: 
-        case types.ADD_PRODUCT_FAILURE_AGAIN:
-            case types.ADD_PRODUCT_CART_FAILURE:{
-        return { ...state, isLoading: false, isError: true };
-      }
-  
-      case types.DELETE_PRODUCT_REQUEST: 
-        case types.DELETE_PRODUCT_REQUEST_AGAIN:
-            case types.DELETE_PRODUCT_CART_REQUEST: {
-        return { isLoading: true, isError: false };
-      }
-  
-      case types.DELETE_PRODUCT_SUCCESS:  
-        case types.DELETE_PRODUCT_SUCCESS_AGAIN:{
-        return { ...state, isLoading: false, basket: payload, isError: false };
-      }
-      case types.DELETE_PRODUCT_CART_SUCCESS:{
-        return { ...state, isLoading: false, cart: payload, isError: false };
-      }
-      case types.DELETE_PRODUCT_FAILURE: 
-        case types.DELETE_PRODUCT_FAILURE_AGAIN:
-            case types.DELETE_PRODUCT_CART_FAILURE:  {
-             return { isLoading: false, isError: true };
-      }
-  
-      default:
-        return state;
-    }
-  };
+  courseData: [],
+  searchData: [],
+  cartData: [],
+  applyData: {},
+  isLoading: false,
+  isError: false,
+};
+export const reducer = (oldState = initialState, action) => {
+  const { type, payload } = action;
+  switch (type) {
+    case SEARCH_DATA_REQUEST:
+      return { ...oldState, isLoading: true };
+    case SEARCH_DATA_SUCCESS:
+      return { ...oldState, isLoading: false, searchData: payload };
+    case SEARCH_DATA_FAILURE:
+      return { ...oldState, isLoading: false, isError: true };
+
+    case GET_COURSE_DATA_REQUEST:
+      return { ...oldState, isLoading: true };
+    case GET_COURSE_DATA_SUCCESS:
+      return { ...oldState, isLoading: false, courseData: payload };
+    case GET_COURSE_DATA_FAILURE:
+      return { ...oldState, isLoading: false, isError: true };
+    case POST_ADDTOCART_REQUEST:
+      return { ...oldState, isLoading: false };
+    case POST_ADDTOCART_SUCCESS:
+      return { ...oldState, isLoading: true };
+    case POST_ADDTOCART_FAILURE:
+      return { ...oldState, isLoading: false, isError: true };
+    case GET_CART_DATA_REQUEST:
+      return { ...oldState, isLoading: true };
+    case GET_CART_DATA_SUCCESS:
+      return { ...oldState, isLoading: false, cartData: payload };
+    case GET_CART_DATA_FAILURE:
+      return { ...oldState, isLoading: false, isError: true };
+    case GET_APPLY_DATA_REQUEST:
+      return { ...oldState, isLoading: true };
+    case GET_APPLY_DATA_SUCCESS:
+      return { ...oldState, isLoading: false, applyData: payload };
+    case GET_APPLY_DATA_FAILURE:
+      return { ...oldState, isLoading: false, isError: true };
+    case DELETE_DETAILS_REQUEST:
+      return { ...oldState, isLoading: true };
+    case DELETE_DETAILS_SUCCESS:
+      return { ...oldState, isLoading: false };
+    case DELETE_DETAILS_FAILURE:
+      return { ...oldState, isLoading: false, isError: true };
+
+    default:
+      return oldState;
+  }
+};

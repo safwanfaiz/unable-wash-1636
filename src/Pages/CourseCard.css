@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600&family=Poppins:wght@300;400;500&family=Roboto:wght@100;300;400;500&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+a {
+  text-decoration: none;
+}
+.c-btn {
+  border: none;
+  margin: 2px;
+  padding: 9px;
+  background-color: rgb(223, 30, 46);
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.c-btn-light {
+  color: rgb(81, 136, 240);
+  background: transparent;
+  font-weight: 500;
+}
+.c-btn-light:hover {
+  background-color: rgb(228, 234, 245);
+}
+.c-card-container {
+    max-width: 280px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px;
+    /* border: 1px solid gray; */
+    background: white;
+    border-radius: 5px;
+    margin: auto;
+    height: auto;
+  }
+  .c-card-wrapper {
+    height: 250px;
+  }
+  .c-card-img-box {
+    width: 100%;
+    height: 60%;
+    margin-bottom: 1px;
+    background-size: color;
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
+  .c-card-img {
+    height: 100%;
+    width: 100%;
+  }
+  .c-card-desc {
+    padding: 13px;
+  }
+  .curse-desc {
+    font-weight: 300;
+    line-height: 19px;
+    font-size: 14px;
+  }
+  .caurse-name {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .c-card-desc {
+    width: 100%;
+    height: 40%;
+  }
+  .c-card-price-wrapper {
+    border-top: 1px dashed gray;
+    width: 90%;
+    margin: auto;
+    padding: 10px 0;
+  }
+  .c-oldprice {
+    text-decoration: line-through;
+    font-size: 13px;
+    margin-right: 7px;
+    display: flex;
+    align-items: flex-end;
+  }
+  .c-card-odlprice {
+    display: flex;
+    gap: 2px;
+    justify-content: end;
+  }
+  .c-card-price {
+    font-weight: 500;
+    font-size: 17px;
+    justify-content: end;
+  }
+  .c-card-emi {
+    color: rgb(247, 147, 11);
+    font-size: 13px;
+    text-align: end;
+    font-weight: 500;
+    margin: 3px 0;
+  }
+  .c-card-btn {
+    text-align: end;
+  }
+  @media screen and (max-width: 1140px) {
+    .c-card-emi {
+      font-size: 15px;
+    }
+  }
+  @media screen and (max-width: 800px) {
+    .c-card-emi {
+      font-size: 15px;
+    }
+  }
+  
