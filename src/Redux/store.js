@@ -1,3 +1,4 @@
+
 import {
   legacy_createStore,
   applyMiddleware,
@@ -14,3 +15,4 @@ const store = legacy_createStore(
   composeEnhancers(applyMiddleware(thunk))
 );
 export { store };
+
