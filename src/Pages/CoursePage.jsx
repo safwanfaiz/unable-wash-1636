@@ -4,7 +4,7 @@ import CourseCard from "./CourseCard";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 // import axios from "axios";
-export default function Course() {
+export default function CoursePage() {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.AppReducer.courseData);
   
