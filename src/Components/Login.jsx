@@ -10,9 +10,12 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import {  GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import {  UserAuth } from '../Utils/firebase-config';
 import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import { GET_AUTH_SUCESS_COMPANY, GET_AUTH_SUCESS_STUDENT } from '../Redux/Auth/actionTypes';
 export const Login = ({key_id,description,des_link,create_account}) => {
   const [showPassword, setShowPassword] = useState(false);
   const [isSigninLoading, setisSigninLoading] = useState(false);
+  const dispatch =useDispatch();
   const navigate =useNavigate();
   const [state, setState] = useState({
   email: "",
@@ -25,6 +28,7 @@ export const Login = ({key_id,description,des_link,create_account}) => {
   .then((result) => {
   
     const credential = GoogleAuthProvider.credentialFromResult(result);
+
     const token = credential.accessToken;
     const user = result.user;
     toast.success("Login Sucessfull")

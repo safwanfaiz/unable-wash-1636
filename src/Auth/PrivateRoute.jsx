@@ -1,9 +1,8 @@
-
 import { onAuthStateChanged } from 'firebase/auth'
 import React, { useEffect, useState } from 'react'
 import {} from 'react-redux'
 import { Navigate, useLocation } from 'react-router-dom'
-import { UserAuth } from '../Utils/firebase'
+import { UserAuth } from '../Utils/firebase-config'
 
 const PrivateRoute = ({children}) => {
   const [auth,setAuth] =useState(false);
@@ -16,13 +15,11 @@ const PrivateRoute = ({children}) => {
       }
     });
   },[])
-  
-    const location =useLocation();
-    console.log(auth,"auth")
+  const location =useLocation();
     if(!auth){
        return  <Navigate to="/login/student" replace state={{data:location.pathname}}/>
     }
-  return children
+  return <Navigate to="/cart"/> ;
 }
 
 export default PrivateRoute

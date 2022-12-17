@@ -24,13 +24,13 @@ const LoginPage = () => {
   
   return (
     <Box w={"100%"}  h={896}bg={useColorModeValue("#e7e7e7","red")}>
-        <Breadcrums/>
+        
         <Stack textAlign={"center"} alignItems={"center"} justifyContent={"space-evenly"}>
         <Tabs size={"lg"}  isLazy>
         <Stack  textAlign={"center"} alignItems={"center"} justifyContent={"space-evenly"}  >
             <TabList bg={"white"} px={[null,6,6]} pt={2}mt={10} boxShadow='dark-md'  borderTopRightRadius={7}>
-                <Tab fontWeight={"semibold"} w={230}><Link to={"/student"}>STUDENT</Link></Tab>
-                <Tab fontWeight={"semibold"} w={230}><Link to={"/company"}>COMPANY</Link></Tab>
+                <Tab fontWeight={"semibold"} w={230}><Link to={"/login/student"}>STUDENT</Link></Tab>
+                <Tab fontWeight={"semibold"} w={230}><Link to={"/login/company"}>COMPANY</Link></Tab>
             </TabList>
             </Stack>
             <TabPanels   >
