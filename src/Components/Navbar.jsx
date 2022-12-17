@@ -424,7 +424,7 @@ function Navbar(props) {
               id="div_3_1"
               className="hidden visible"
               style={{ display: "none" }}
-              onclick="logIn()"
+              onClick="logIn()"
             >
               <div className="side_menu_svg_cont"></div>
               <div className="side_menu_content">

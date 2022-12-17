@@ -1,6 +1,7 @@
+import { GrInstagram } from 'react-icons/gr';
 import './footer.css'
 
-function Footer(props) {
+export const Footer=(props)=> {
   return(<div><div className="footer">
   <div className="footer_upper">
     <div className="links">
@@ -23,6 +24,7 @@ function Footer(props) {
             href="https://www.linkedin.com/company/interntheory"
             target="_blank"
             style={{color: 'rgb(255, 255, 255)'}}
+            rel="noreferrer"
           ></a>
         </p>
       </div>
@@ -34,6 +36,7 @@ function Footer(props) {
             href="https://twitter.com/InternTheory"
             target="_blank"
             style={{color: 'rgb(255, 255, 255)'}}
+            rel="noreferrer"
           ></a>
         </p>
       </div>
@@ -44,7 +47,8 @@ function Footer(props) {
           href="https://www.instagram.com/interntheory"
           target="_blank"
           style={{color: 'rgb(255, 255, 255)'}}
-        ></a>
+          rel="noreferrer"
+        ><GrInstagram/></a>
       </div>
     </div>
     <div className="search">
@@ -114,5 +118,4 @@ function Footer(props) {
 </div></div>)
 };
 
-export default Footer;
 
