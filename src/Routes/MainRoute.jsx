@@ -2,12 +2,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { HomePage } from "../Pages/HomePage";
-import Courses from "../Pages/Courses";
 import InternShips from "../Pages/InternShips";
 import Jobs from "../Pages/Jobs";
-import Login from "../Pages/Login";
 import Dashboard from "../Pages/Dashboard";
-import Cart from "../Pages/Cart";
 import Profile from "../Pages/Profile";
 import { ToastContainer } from 'react-toastify'
 import PrivateRoute from '../Auth/PrivateRoute'
@@ -24,7 +21,7 @@ import { Admin } from '../Pages/Admin'
 
 
 
-function AllRouter() {
+export const MainRoutes=()=>{
   return (
     <>
     <ToastContainer position="top-center" theme="dark" />
@@ -52,5 +49,3 @@ function AllRouter() {
   )
 
 }
-
-export default AllRouter;

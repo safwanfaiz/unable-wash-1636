@@ -1,13 +1,13 @@
 import './App.css';
+import { MainRoutes} from"./Routes/MainRoute.jsx"
 
-import { MainRoute } from './Routes/MainRoute';
 
 
 
 function App() {
   return (
     <div>
-      <MainRoute/>
+      <MainRoutes/>
     </div>
   );
 }
