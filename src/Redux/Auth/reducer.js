@@ -1,33 +1,4 @@
-import React from "react";
-import * as types from "./actionType";
-const initial = {
-  isAuth: false,
-  isAuthLoading: false,
-  isAuthError: false,
-};
-export const reducer = (state = initial, action) => {
-  const { type, payload } = action;
-  switch (type) {
-    case types.USER_LOGIN_REQUEST:
-      return {
-        ...state,
-        isAuthLoading: true,
-      };
-    case types.USER_LOGIN_SUCCESS:
-      console.log("action:", state);
-      // localStorage.setItem("auth",JSON.stringify())
-      return {
-        ...state,
-        isAuthLoading: false,
-        isAuth: true,
-      };
-    
-
-    default:
-      return state;
-  }
-};
-import { GET_AUTH_FAILURE, GET_AUTH_FAILURE_COMPANY, GET_AUTH_FAILURE_STUDENT, GET_AUTH_LOADING, GET_AUTH_LOADING_COMPANY, GET_AUTH_LOADING_STUDENT, GET_AUTH_SUCESS, GET_AUTH_SUCESS_COMPANY, GET_AUTH_SUCESS_STUDENT } from "./actionTypes"
+import { GET_AUTH_FAILURE, GET_AUTH_FAILURE_STUDENT, GET_AUTH_LOADING, GET_AUTH_LOADING_STUDENT, GET_AUTH_SUCESS, GET_AUTH_SUCESS_STUDENT } from "./actionTypes"
 
 const initialState={
     isAuth:false,
@@ -54,26 +25,19 @@ export const reducer =(oldstate=initialState,action)=>{
                 ...oldstate,isAuthError:false,isAuth:false
             })
         }
-        case GET_AUTH_LOADING_STUDENT:
-            case GET_AUTH_LOADING_COMPANY:{
+        case GET_AUTH_LOADING_STUDENT:{
             return({
-                ...oldstate,studentAuth:false,companyAuth:false
+                ...oldstate,isAuthloading:true,isAuthError:false
             })
         }
         case GET_AUTH_SUCESS_STUDENT:{
             return({
-                ...oldstate,studentAuth:true,companyAuth:false
+                ...oldstate,isAuthloading:false,isAuth:true,uid_token:action.payload
             })
         }
-        case GET_AUTH_SUCESS_COMPANY:{
+        case GET_AUTH_FAILURE_STUDENT:{
             return({
-                ...oldstate,studentAuth:true,companyAuth:false
-            })
-        }        
-        case GET_AUTH_FAILURE_STUDENT:
-        case GET_AUTH_FAILURE_COMPANY:{
-            return({
-                ...oldstate,studentAuth:false,companyAuth:false
+                ...oldstate,isAuthError:false,isAuth:false
             })
         }
         default: return oldstate ;
