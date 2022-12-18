@@ -10,7 +10,7 @@ export default function CoursePage() {
   const data = useSelector((state) => state.AppReducer.products);
   
   useEffect(() => {
-   if(data.length===0){
+   if(data.length>=0){
     dispatch(GET_PRODUCTS_COMPANY())
    }}, []);
   return (
