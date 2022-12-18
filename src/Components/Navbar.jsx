@@ -5,9 +5,11 @@ import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import inter_job from "../Assets/experianceshalaV.jpg";
 import axios from "axios";
-
+import { Box, Button, useDisclosure } from "@chakra-ui/react";
+import { HamburgerIcon } from "@chakra-ui/icons";
+import { IoClose } from 'react-icons/io5';
 function Navbar(props) {
-  
+  const { isOpen, onOpen, onClose } = useDisclosure()
   const navigate = useNavigate();
   let logo = false;
   let sty;
@@ -34,16 +36,15 @@ function Navbar(props) {
  
   return (
     <div className="parent">
+      
       <nav>
         <div className="side_menu" id="side_bar" style={sty}>
-          <div className="menu_btn" id="menu_btn_2">
-            <button onClick={() => setMenu((logo = logo))}>
-              <img
-                className="menu_image"
-                src="data:image/png;base64,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"
-              />
-            </button>
-          </div>
+          <Box pl={5} pt={1}  >
+
+              <Box  variant='ghost' w={30} h={30} _hover={{border:" 1px solid tomato",borderRadius:"50%"}} _active={{transform: "rotate(10deg)"}}   mt={2} onClick={() => setMenu((logo))}>
+            <IoClose color="red"  size={30} /></Box>
+          
+          </Box>
           <div className="logo_btn">
             {/* add logo here */}
 
@@ -82,7 +83,7 @@ function Navbar(props) {
                 <NavLink to="/">
                   {" "}
                   <p
-                    onClick={() => setMenu((logo = logo))}
+                    onClick={() => setMenu(logo = logo)}
                     style={{ color: "black" }}
                   >
                     Home
@@ -106,7 +107,7 @@ function Navbar(props) {
               <div className="side_menu_content">
                 <NavLink to="/dashboard">
                   <p
-                    onClick={() => setMenu((logo = logo))}
+                    onClick={() => setMenu(logo)}
                     style={{ color: "black" }}
                   >
                     Dashboard
@@ -147,7 +148,7 @@ function Navbar(props) {
               <div className="side_menu_content">
                 <NavLink to="/internships">
                   <p
-                    onClick={() => setMenu((logo = logo))}
+                    onClick={() => setMenu(logo)}
                     style={{ color: "black" }}
                   >
                     Internships
@@ -172,7 +173,7 @@ function Navbar(props) {
                 <NavLink to="/jobs">
                   {" "}
                   <p
-                    onClick={() => setMenu((logo = logo))}
+                    onClick={() => setMenu(logo)}
                     style={{ color: "black" }}
                   >
                     Jobs
@@ -213,7 +214,7 @@ function Navbar(props) {
               <div className="side_menu_content">
                 <NavLink to="/courses">
                   <p
-                    onClick={() => setMenu((logo = logo))}
+                    onClick={() => setMenu(logo)}
                     style={{ color: "black" }}
                   >
                     Courses
@@ -329,7 +330,7 @@ function Navbar(props) {
                 <NavLink to="/signup">
                   {" "}
                   <p
-                    onClick={() => setMenu((logo = logo))}
+                    onClick={() => setMenu(logo)}
                     style={{ color: "black" }}
                   >
                     Register
@@ -389,7 +390,7 @@ function Navbar(props) {
                 <NavLink to="/login">
                   {" "}
                   <p
-                    onClick={() => setMenu((logo = logo))}
+                    onClick={() => setMenu(logo)}
                     style={{ color: "black" }}
                   >
                     Login
@@ -483,12 +484,9 @@ function Navbar(props) {
         </div>
 
         <div className="menu_btn" id="menu_btn" style={stn}>
-          <button onClick={() => setMenu((logo = !logo))}>
-            <img
-              className="menu_image"
-              src="data:image/png;base64,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"
-            />
-          </button>
+          <Button onClick={() => setMenu((logo = !logo))}>
+            <HamburgerIcon/>
+          </Button>
         </div>
         <div className="logo_btn" id="logo_btn" style={stn}>
           {/* add logo here */}
