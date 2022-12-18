@@ -447,6 +447,15 @@
       "oldPrice": "5999",
       "newPrice": "2999",
       "emi": "EMI Starting at ₹ 172/month"
+    },
+    {
+      "id": 6,
+      "image": "https://assets.interntheory.com/creative/courses/thumbnails/android-app-development-kotlin-course.png",
+      "name": "Android App Development Using Kotlin Course",
+      "desc": "Learn the art of android app design and web development. Joi ...",
+      "oldPrice": "7999",
+      "newPrice": "3999",
+      "emi": "EMI Starting at ₹ 229/month"
     }
   ]
 }
