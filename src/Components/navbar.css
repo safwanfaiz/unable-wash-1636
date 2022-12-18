@@ -14,8 +14,10 @@ body {
 	overflow-x: hidden;
 }
 .parent{
-	position: sticky;
+	position: fixed;
 	top: 0px;
+	width: 100%;
+	z-index: 2;
 }
 
 /* Navigation CSS */
@@ -86,7 +88,7 @@ nav div {
 	cursor: pointer;
 }
 
-.menu_btn:hover,
+
 .cart_btn:hover {
 	background-color: rgba(0, 0, 0, 0.07);
 }
