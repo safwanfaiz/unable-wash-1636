@@ -4,7 +4,6 @@ import { Routes, Route } from "react-router-dom";
 import { HomePage } from "../Pages/HomePage";
 import InternShips from "../Pages/InternShips";
 import Jobs from "../Pages/Jobs";
-import Dashboard from "../Pages/Dashboard";
 import Profile from "../Pages/Profile";
 import { ToastContainer } from 'react-toastify'
 import PrivateRoute from '../Auth/PrivateRoute'
@@ -31,13 +30,12 @@ export const MainRoutes=()=>{
       <Route path="/internships" element={ <InternShips />}/>
       <Route path="/jobs" element={<Jobs />}/>
       <Route path="/profile" element={<Profile />} />
-      <Route path="/dashboard" element={ <Dashboard /> }/>
       <Route path='/login/student' element={<LoginPage/>}/>
       <Route path='/login/company' element={<LoginPage/>}/>
       <Route path='/register/student' element={<SignUp/>}/>
       <Route path='/register/student' element={<SignUp/>}/>
       <Route path="/admin" element={<Admin/>}/> 
-      <Route path='/cart' element={<CartPage/>}/>
+      <Route path='/cart' element={<PrivateRoute><CartPage/></PrivateRoute>}/>
       <Route path='/course' element={<CoursePage/>}/>
       <Route path='/cart/:id' element={<h1>Singelpage</h1>}/>
       <Route path="/:displayName/:id/:title/edit" element={<EditCartData/>} />

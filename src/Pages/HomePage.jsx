@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import "./home.css";
 
 function HomePage(props) {
+  
   return (
     <div>
       <div className="container" id="container">
@@ -21,7 +22,7 @@ function HomePage(props) {
               </p>
             </div>
             <div className="search_box">
-              <form id="search_form" autocomplete="off">
+              <form id="search_form" autoComplete="off">
                 <div className="search_box_1">
                   <div className="cities autocomplete">
                     <input

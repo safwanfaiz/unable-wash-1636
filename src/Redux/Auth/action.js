@@ -26,3 +26,4 @@ export const GET_COMPANY_AUTH_SUCESS_fn=(payload)=>{
 export const GET_COMPANY_AUTH_FAILURE_fn=()=>{
     return {type: GET_AUTH_FAILURE_COMPANY}
 }
+
