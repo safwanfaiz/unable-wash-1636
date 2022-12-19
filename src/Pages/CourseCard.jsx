@@ -7,6 +7,7 @@ export const CourseCard =({ data }) =>{
   const handleAddToCart = (data) => {
     dispatch(ADD_DATA_TO_CART({...data})).then((r)=>{
     });
+    alert(`Item added to Cart`)
   };
   return (
     <>

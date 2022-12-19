@@ -2,7 +2,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { HomePage } from "../Pages/HomePage";
-import InternShips from "../Pages/InternShips";
 import Jobs from "../Pages/Jobs";
 import Profile from "../Pages/Profile";
 import { ToastContainer } from 'react-toastify'
@@ -16,19 +15,21 @@ import CoursePage from '../Pages/CoursePage'
 import WrongRoute from '../Pages/WrongRoute'
 import { EditCartData } from '../Components/EditAdmindata'
 import { Admin } from '../Pages/Admin'
-
-
-
+import Internships from "../Pages/Internships/Internships";
+import SingleIntership from "../Pages/Internships/SingleIntership";
+import InternshipsPost from "../Pages/Internships/InternshipsPost";
+import EditInternships from "../Pages/Internships/EditInternships";
+import AddJob from "../Pages/Job/AddJob";
+import EditJobs from "../Pages/Job/EditJob";
+import SingleJob from "../Pages/Job/SingleJob";
 
 export const MainRoutes=()=>{
   return (
     <>
-    <ToastContainer position="top-center" theme="dark" />
+      {/* <ToastContainer position="top-center" theme="dark" /> */}
     <Navbar/>
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/internships" element={ <InternShips />}/>
-      <Route path="/jobs" element={<Jobs />}/>
       <Route path="/profile" element={<Profile />} />
       <Route path='/login/student' element={<LoginPage/>}/>
       <Route path='/login/company' element={<LoginPage/>}/>
@@ -40,7 +41,15 @@ export const MainRoutes=()=>{
       <Route path='/cart/:id' element={<h1>Singelpage</h1>}/>
       <Route path="/:displayName/:id/:title/edit" element={<EditCartData/>} />
       <Route path="*" element={<WrongRoute/>} />
-      </Routes>
+      <Route path='/internships' element={<Internships/>}/>
+      <Route path='/internships/:id' element={<SingleIntership/>}/>
+      <Route path='/internshipsPost' element={<InternshipsPost/>}/>
+      <Route path='/internships/edit/:id' element={<EditInternships/>}/>
+      <Route path='/jobs' element={<Jobs/>}/>
+      <Route path='/jobsPost' element={<AddJob/>}/>
+      <Route path='/jobs/edit/:id' element={<EditJobs/>}/>
+      <Route path='/jobs/:id' element={<SingleJob/>}/>
+    </Routes>
     <Footer/>
     </>
 
