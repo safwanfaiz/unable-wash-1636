@@ -5,7 +5,9 @@ import { ADD_DATA_TO_CART } from "../Redux/App/action";
 export const CourseCard =({ data }) =>{
   const dispatch = useDispatch();
   const handleAddToCart = (data) => {
-    dispatch(ADD_DATA_TO_CART(data));
+    dispatch(ADD_DATA_TO_CART({...data})).then((r)=>{
+    });
+    alert(`Item added to Cart`)
   };
   return (
     <>

@@ -157,7 +157,7 @@ import {
 // GET CART DATA FROM STORE & CART URL-------------------------------------------------------------------------------->
     export const GET_CART_DATA=()=>(dispatch)=>{
         dispatch(GET_CART_LOADING_fn())
-       return axios.get("http://localhost:8080/cart")
+       return axios.get("https://bustling-gleaming-office.glitch.me/cart")
         .then((r)=> {dispatch(GET_CART_SUCESS_fn(r.data))})
         .catch((e)=>{GET_CART_FAILURE_fn(e)})
     }
@@ -165,7 +165,7 @@ import {
     export const ADD_DATA_TO_CART = (payload) => (dispatch) => {
         dispatch(ADD_CART_REQUESTfn());
         return axios
-          .post("http://localhost:8080/cart", payload)
+          .post("https://bustling-gleaming-office.glitch.me/cart", payload)
           .then((r) => {
             dispatch(ADD_CART_SUCESS_fn(r.data));
             dispatch(GET_CART_DATA())

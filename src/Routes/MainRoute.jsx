@@ -2,8 +2,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { HomePage } from "../Pages/HomePage";
-import InternShips from "../Pages/InternShips";
-import Dashboard from "../Pages/Dashboard";
+import Jobs from "../Pages/Jobs";
 import Profile from "../Pages/Profile";
 import { ToastContainer } from 'react-toastify'
 import PrivateRoute from '../Auth/PrivateRoute'
@@ -23,42 +22,34 @@ import EditInternships from "../Pages/Internships/EditInternships";
 import AddJob from "../Pages/Job/AddJob";
 import EditJobs from "../Pages/Job/EditJob";
 import SingleJob from "../Pages/Job/SingleJob";
-import Jobs from "../Pages/Job/Job";
-
-
-
-
 
 export const MainRoutes=()=>{
   return (
     <>
-    <ToastContainer position="top-center" theme="dark" />
+      {/* <ToastContainer position="top-center" theme="dark" /> */}
     <Navbar/>
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/profile" element={<Profile />} />
-      <Route path="/dashboard" element={ <Dashboard /> }/>
       <Route path='/login/student' element={<LoginPage/>}/>
       <Route path='/login/company' element={<LoginPage/>}/>
       <Route path='/register/student' element={<SignUp/>}/>
       <Route path='/register/student' element={<SignUp/>}/>
       <Route path="/admin" element={<Admin/>}/> 
-      <Route path='/cart' element={<CartPage/>}/>
+      <Route path='/cart' element={<PrivateRoute><CartPage/></PrivateRoute>}/>
       <Route path='/course' element={<CoursePage/>}/>
       <Route path='/cart/:id' element={<h1>Singelpage</h1>}/>
       <Route path="/:displayName/:id/:title/edit" element={<EditCartData/>} />
       <Route path="*" element={<WrongRoute/>} />
-
-        <Route path='/internships' element={<Internships/>}/>
-        <Route path='/internships/:id' element={<SingleIntership/>}/>
-        <Route path='/internshipsPost' element={<InternshipsPost/>}/>
-        <Route path='/internships/edit/:id' element={<EditInternships/>}/>
-        <Route path='/jobs' element={<Jobs/>}/>
-        <Route path='/jobsPost' element={<AddJob/>}/>
-        <Route path='/jobs/edit/:id' element={<EditJobs/>}/>
-        <Route path='/jobs/:id' element={<SingleJob/>}/>
-
-      </Routes>
+      <Route path='/internships' element={<Internships/>}/>
+      <Route path='/internships/:id' element={<SingleIntership/>}/>
+      <Route path='/internshipsPost' element={<InternshipsPost/>}/>
+      <Route path='/internships/edit/:id' element={<EditInternships/>}/>
+      <Route path='/jobs' element={<Jobs/>}/>
+      <Route path='/jobsPost' element={<AddJob/>}/>
+      <Route path='/jobs/edit/:id' element={<EditJobs/>}/>
+      <Route path='/jobs/:id' element={<SingleJob/>}/>
+    </Routes>
     <Footer/>
     </>
 

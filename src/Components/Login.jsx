@@ -31,15 +31,15 @@ export const Login = ({key_id,description,des_link,create_account}) => {
 
     const token = credential.accessToken;
     const user = result.user;
-    toast.success("Login Sucessfull")
+    // toast.success("Login Sucessfull")
     navigate("/")
     // ...
   }).catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
     const email = error.customData.email;
-    toast.error("Login Failed")
-    toast.error(errorCode,errorMessage)
+    // toast.error("Login Failed")
+    // toast.error(errorCode,errorMessage)
     const credential = GoogleAuthProvider.credentialFromError(error);
     // ...
   })};
@@ -52,13 +52,13 @@ signInWithEmailAndPassword(UserAuth, email, password)
     const Loguser = userCredential.user;
     console.log(Loguser)
     setisSigninLoading(false);
-    toast.success("Login Sucessfull")
+    // toast.success("Login Sucessfull")
     navigate("/")
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    toast.error(errorCode,errorMessage)
+    // toast.error(errorCode,errorMessage)
     setisSigninLoading(false);
   });
     setState({email: "",

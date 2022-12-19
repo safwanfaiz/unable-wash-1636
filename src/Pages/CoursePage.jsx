@@ -8,7 +8,6 @@ import { CourseCard } from "./CourseCard";
 export default function CoursePage() {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.AppReducer.products);
-  
   useEffect(() => {
    if(data.length===0){
     dispatch(GET_PRODUCTS_COMPANY())
