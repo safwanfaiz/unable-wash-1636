@@ -9,20 +9,19 @@ const [form, setForm]= useState({
   title: "",
   image: "",
   description:"",
-  newPrice: null,
-  oldPrice:null,
+  newPrice: "",
+  oldPrice:"",
 })
 const dispatch = useDispatch();
 const formclear =()=>{
   setForm({
     ...form,
-    title: "",
+    name: "",
     image: "",
-    description:"",
+    desc:"",
     newPrice: null,
     oldPrice:null,
   })
-  toast.success("Form is cleared")
 }
 
 const OnChangeValue =(e)=>{
@@ -43,13 +42,12 @@ const OnsubmitPress =(e)=>{
     })
     setForm({
       ...form,
-      title: "",
+    name: "",
     image: "",
-    description:"",
+    desc:"",
     newPrice: null,
     oldPrice:null,
     })
-    toast.success("Data added sucesfully")
   }
 
 
@@ -79,7 +77,7 @@ const OnsubmitPress =(e)=>{
           <form>
             <FormControl id="Title" isRequired>
                   <FormLabel>Title</FormLabel>
-                  <Input type="text"onChange={OnChangeValue}   name="title" />
+                  <Input type="text"onChange={OnChangeValue}   name="name" />
                 </FormControl>
             <FormControl id="Image" isRequired>
               <FormLabel>Image</FormLabel>
@@ -87,7 +85,7 @@ const OnsubmitPress =(e)=>{
             </FormControl>
             <FormControl id="Description" isRequired>
                   <FormLabel>Description</FormLabel>
-                  <Input type="text" onChange={OnChangeValue}  name="description"  />
+                  <Input type="text" onChange={OnChangeValue}  name="desc"  />
                 </FormControl>
             <FormControl id="Time" isRequired>
               <FormLabel>Old Price</FormLabel>

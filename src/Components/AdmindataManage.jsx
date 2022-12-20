@@ -9,13 +9,12 @@ import { UserAuth } from '../Utils/firebase-config';
 import { toast } from 'react-toastify';
 const AdmindataManage  = () => {
   const [displayName,setDisplayName]=useState('');
-    const PRODUCTS= useSelector((state)=> state.AppReducer.products)
+    const PRODUCTS= useSelector((state)=> state.AppReducer.company)
     const dispatch =useDispatch();
     const navigate =useNavigate();
     const handelDeletedata =(id)=>{
         dispatch(DELETE_DATA_COMPANY_COURSE(id))  
         dispatch(DELETE_DATA_STUDENT_COURSE(id))
-        toast.success("Content Deleted Successfully")
         
     }
     const handleEdit =(id,title)=>{
@@ -64,13 +63,13 @@ const AdmindataManage  = () => {
     },
   }}>
           {PRODUCTS.length> 0 && PRODUCTS.map((item)=>
-  item.title && item.image && item.season&& item.season?
                   <VStack  key={item.id} bg={"whiteAlpha.800"} color={"blackAlpha.900"} p={10} alignItems={"center"} justifyContent={"center"} boxShadow='md' borderRadius={5}>
-                    <Image m={0} width={100} height={57} src={item.image} alt={item.title}/>
+                    <Image m={0} width={100} height={57} src={item.image} alt={item.name}/>
                     <VStack>
-                        <Text textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {item.title}</Text>
-                       <Box width={"auto"} h={30} overflow={"hidden"}> <Text textAlign={"left"} as={"b"} color={"blackAlpha.600"} > {item.description}</Text></Box>
-                        <Text textAlign={"left"} as={"b"} color={"blackAlpha.600"}  >Season: {item.season}</Text>
+                        <Text textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {item.name}</Text>
+                       <Box width={"auto"} h={30} overflow={"hidden"}> <Text textAlign={"left"} as={"b"} color={"blackAlpha.600"} > {item.desc}</Text></Box>
+                        <Text textAlign={"left"} as={"b"} color={"blackAlpha.600"}  >Old Peice: {item.oldPrice}</Text>
+                        <Text textAlign={"left"} as={"b"} color={"blackAlpha.600"}  >New Peice: {item.newPrice}</Text>
                     </VStack>
                     <Stack pt={5} spacing={6} direction={['column', 'row']}>
                   <Box><Button
@@ -93,16 +92,15 @@ const AdmindataManage  = () => {
                     _hover={{
                       bg: 'blue.500',
                     }}
-                    type="submit"  onClick={()=>handleEdit(item.id,item.title) } >
+                    type="submit"  onClick={()=>handleEdit(item.id,item.name) } >
                     Edit
                   </Button>
                 </Stack>
                   </VStack>
-                  :""
           )}</Box></Stack>
           
           {PRODUCTS.length>2?<Text mt={-20} p={0} as={"b"} textAlign={"center"} color={"red.500"} fontSize={"2xs"}>Scroll Down</Text>:""}
-          <Text as={"b"} textAlign={"center"} color={"blackAlpha.900"} fontSize={"2xl"}>Total Content available: {PRODUCTS.length -1}</Text>
+          <Text as={"b"} textAlign={"center"} color={"blackAlpha.900"} fontSize={"2xl"}>Total Content available: {PRODUCTS.length }</Text>
        </Stack>
     </Flex>
     </Container>: <Flex justify={"center"} align="center" border={"1px solid red"} overflow="auto" h={300} w={450} mt={5}  >

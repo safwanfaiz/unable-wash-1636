@@ -5,17 +5,17 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { AdminAddcard } from '../Components/AdminAddcard'
 import AdmindataManage from '../Components/AdmindataManage'
-import { GET_PRODUCTS, GET_PRODUCTS_COMPANY } from '../Redux/App/action'
+import { GET_PRODUCTS, GET_PRODUCTS_COMPANY, GET_PRODUCTS_COMPANY_ADMIN } from '../Redux/App/action'
 
 export const Admin = () => {
-  const PRODUCTS= useSelector((state)=> state.AppReducer.products)
+  const PRODUCTS= useSelector((state)=> state.AppReducer.company)
   const dispatch =useDispatch();
   useEffect(()=>{
     if(PRODUCTS.length>=0){
-        dispatch(GET_PRODUCTS_COMPANY())
+        dispatch(GET_PRODUCTS_COMPANY_ADMIN())
     }
 },[])
-
+console.log(PRODUCTS,"prod")
   return (
     <>
       <Heading   mt={20} fontSize={'4xl'} textAlign={'center'}>Admin's panel</Heading>

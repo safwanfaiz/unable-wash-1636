@@ -10,16 +10,17 @@ import { GrFormView, GrFormViewHide } from "react-icons/gr";
 
 export const EditCartData =()=> {
   const Priviousdata = "Privious data will Remain same if Seasonfild gonna be Empty."
-    const[moviename,setMoviename]=useState("");
-    const[movieDes,setMovieDes]=useState("");
-    const [movieimage, setMovieImage]= useState("")
-    const [movieSeason, setMovieSeason]= useState("")
+    const[name,setname]=useState("");
+    const[desc,setDesc]=useState("");
+    const [image, setImage]= useState("")
+    const [newPrice, setnewPrice]= useState("")
+    const [oldPrice, setoldPrice]= useState("")
     const[previousdata,setPreviousData]=useState({});
     const {id} =useParams();
     // const [viewPrevData, setviewPrevData]= useState(false)
     // const [viewCruntData, setviewCruntData]= useState(false)
 
-    const PRODUCTS= useSelector((state)=> state.AppReducer.products)
+    const PRODUCTS= useSelector((state)=> state.AppReducer.company)
 // const handelviewPrevData=()=>{
 //   setviewPrevData(true);
 // }
@@ -35,24 +36,27 @@ export const EditCartData =()=> {
 const dispatch = useDispatch();
 const formclear =()=>{
 navigate("/admin")
-  toast.success("Edit Cancled")
 }
 
  const navigate =useNavigate();
  const handelUpdate =()=>{
       const payload={
       }
-      if(moviename !== ""){
-        payload.title = moviename 
+      if(name !== ""){
+        payload.name = name 
      }
-     if(movieDes !== ""){
-       payload.description = movieDes 
+     if(desc
+      !== ""){
+       payload.description = desc
      }
-     if(movieimage !== ""){
-       payload.image = movieimage
+     if(image !== ""){
+       payload.image = image
     }
-    if(movieSeason !== ""){
-      payload.season = movieSeason 
+    if(newPrice !== ""){
+      payload.season =  newPrice
+    }
+    if(oldPrice !== ""){
+      payload.season =  oldPrice
     }
       dispatch(EDIT_DATA_COMPANY_COURSE(id,payload))
       .then(()=>{
@@ -62,12 +66,8 @@ navigate("/admin")
       .then(()=>{
 
       });
-      toast.success("Content Deleted from server")
       navigate("/admin")
-      setMoviename("")
-      setMovieDes("")
-      setMovieImage("")
-      setMovieSeason("")
+   
     }
     useEffect(()=>{
       if(id){
@@ -86,17 +86,19 @@ console.log(previousdata,"dataP")
    
         <VStack  bg={"whiteAlpha.800"} h={450} color={"blackAlpha.900"} px={10} alignItems={"center"} justifyContent={"center"} boxShadow='md' borderRadius={5}>
                     <>
-                          <Image borderRadius={"5px"} border={"2px solid RGBA(0, 0, 0, 80)"} m={0} width={300} height={169} boxShadow={"xl"} src={previousdata.image} alt={previousdata.image}/>
+                          <Image borderRadius={"5px"} border={"2px solid RGBA(0, 0, 0, 80)"} m={0} width={300} height={169} boxShadow={"xl"} src={previousdata.image} alt={previousdata.name}/>
                           <VStack>
                           <FormControl > <FormLabel color={"black"} as="b" >New Title</FormLabel> <Box  borderRadius={"5px"} width={"270px"} border={"1px solid RGBA(0, 0, 0, 0.16)"}  h={"30px"} overflow={"auto"}>
-                              <Text  px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {previousdata.title}</Text></Box></FormControl>
+                              <Text  px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {previousdata.name}</Text></Box></FormControl>
                               <VStack>
                           <FormControl> <FormLabel color={"black"} as="b">New Description</FormLabel> <Box  borderRadius={"5px"} width={"270px"} border={"1px solid RGBA(0, 0, 0, 0.16)"}  h={"50px"} overflow={"auto"}>
-                              <Text  px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"} > {previousdata.description}</Text></Box></FormControl>
+                              <Text  px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"} > {previousdata.desc}</Text></Box></FormControl>
                               <Text color={"red.500"} as={"i"} fontSize={"2xs"}>Scroll down to read Description</Text>
                             </VStack>
-                            <FormControl> <FormLabel color={"black"} as="b">Season</FormLabel> <Box  borderRadius={"5px"} width={"270px"} border={"1px solid RGBA(0, 0, 0, 0.16)"}  h={"30px"} overflow={"auto"}>
-                         <Text px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {previousdata.season}</Text></Box></FormControl>
+                            <FormControl> <FormLabel color={"black"} as="b">old Price</FormLabel> <Box  borderRadius={"5px"} width={"270px"} border={"1px solid RGBA(0, 0, 0, 0.16)"}  h={"30px"} overflow={"auto"}>
+                         <Text px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {previousdata.oldPrice}</Text></Box></FormControl>
+                         <FormControl> <FormLabel color={"black"} as="b">onewPrice</FormLabel> <Box  borderRadius={"5px"} width={"270px"} border={"1px solid RGBA(0, 0, 0, 0.16)"}  h={"30px"} overflow={"auto"}>
+                         <Text px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {previousdata.newPrice}</Text></Box></FormControl>
                           </VStack>
                     </>
                         </VStack>
@@ -113,17 +115,19 @@ console.log(previousdata,"dataP")
 <Text  color={"blue.500"} as={"b"} textAlign={"center"} fontSize={"2xl"} zIndex={5}>New Data</Text>
 <VStack  bg={"whiteAlpha.800"} h={450} color={"blackAlpha.900"} px={10} alignItems={"center"} justifyContent={"center"} boxShadow='md' borderRadius={5}>
               <>
-                    <Image  borderRadius={"5px"} border={"2px solid RGBA(0, 0, 0, 80)"} m={0} width={300} height={169} boxShadow={"xl"}  src={movieimage} alt={moviename}/>
+                    <Image  borderRadius={"5px"} border={"2px solid RGBA(0, 0, 0, 80)"} m={0} width={300} height={169} boxShadow={"xl"}  src={image} alt={name}/>
                     <VStack>
                     <FormControl > <FormLabel color={"black"} as="b" >New Title</FormLabel> <Box  borderRadius={"5px"} width={"270px"} border={"1px solid RGBA(0, 0, 0, 0.16)"}  h={"30px"} overflow={"auto"}>
-                         <Text  px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {moviename?`${moviename}`:`${Priviousdata}`}</Text></Box></FormControl>
+                         <Text  px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {name?`${name}`:`${Priviousdata}`}</Text></Box></FormControl>
                         <VStack>
                      <FormControl> <FormLabel color={"black"} as="b">New Description</FormLabel> <Box  borderRadius={"5px"} width={"270px"} border={"1px solid RGBA(0, 0, 0, 0.16)"}  h={"50px"} overflowX={"auto"}>
-                         <Text  px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {movieDes?`${movieDes}`:`${Priviousdata}`}</Text></Box></FormControl>
-                     {movieDes===""?"":  <Text  mt={-20} p={0} as={"b"} textAlign={"center"} color={"red.500"} fontSize={"2xs"}>Scroll Down</Text>}
+                         <Text  px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {desc?`${desc}`:`${Priviousdata}`}</Text></Box></FormControl>
+                     {desc===""?"":  <Text  mt={-20} p={0} as={"b"} textAlign={"center"} color={"red.500"} fontSize={"2xs"}>Scroll Down</Text>}
                        </VStack>
-                       <FormControl> <FormLabel color={"black"} as="b">New Season</FormLabel> <Box  borderRadius={"5px"} width={"270px"} border={"1px solid RGBA(0, 0, 0, 0.16)"}  h={"30px"} overflow={"auto"}>
-                         <Text px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {movieSeason?`${movieSeason}`:`${Priviousdata}`}</Text></Box></FormControl>
+                       <FormControl> <FormLabel color={"black"} as="b">Old price</FormLabel> <Box  borderRadius={"5px"} width={"270px"} border={"1px solid RGBA(0, 0, 0, 0.16)"}  h={"30px"} overflow={"auto"}>
+                         <Text px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {oldPrice?`${oldPrice}`:`${Priviousdata}`}</Text></Box></FormControl>
+                         <FormControl> <FormLabel color={"black"} as="b">New price</FormLabel> <Box  borderRadius={"5px"} width={"270px"} border={"1px solid RGBA(0, 0, 0, 0.16)"}  h={"30px"} overflow={"auto"}>
+                         <Text px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {newPrice?`${newPrice}`:`${Priviousdata}`}</Text></Box></FormControl>
                     </VStack>
               </>
                   </VStack>
@@ -156,20 +160,24 @@ console.log(previousdata,"dataP")
           <form>
             <FormControl id="Title" >
                   <FormLabel>Title</FormLabel>
-                  <Input type="text" value={moviename} onChange={(e)=>setMoviename(e.target.value)}  />
+                  <Input type="text" value={name} onChange={(e)=>setname(e.target.value)}  />
                 </FormControl>
             <FormControl id="Image" >
               <FormLabel>Image</FormLabel>
-              <Input type="Text" value={movieimage} onChange={(e)=>setMovieImage(e.target.value)}  />
+              <Input type="Text" value={image} onChange={(e)=>Image(e.target.value)}  />
             </FormControl>
             <FormControl id="Description" >
                   <FormLabel>Description</FormLabel>
-                  <Input type="text" value={movieDes} onChange={(e)=>setMovieDes(e.target.value)}   />
+                  <Input type="text" value={desc} onChange={(e)=>setDesc(e.target.value)}   />
                 </FormControl>
             <FormControl id="Time" >
-              <FormLabel>Seasons</FormLabel>
-              <Input type="number" value={movieSeason} onChange={(e)=>setMovieSeason(e.target.value)} />
+              <FormLabel>Old Price</FormLabel>
+              <Input type="number" value={oldPrice} onChange={(e)=>setoldPrice(e.target.value)} />
             </FormControl>   
+            <FormControl id="Time" >
+              <FormLabel>new Price</FormLabel>
+              <Input type="number" value={newPrice} onChange={(e)=>setoldPrice(e.target.value)} />
+            </FormControl> 
             <Stack pt={5} spacing={6} direction={['column', 'row']}>
           <Box><Button leftIcon={<IoMdArrowRoundBack/>}
             bg={'red.400'}

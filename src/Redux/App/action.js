@@ -76,6 +76,16 @@ import {
     export const GET_CART_FAILURE_fn=()=>{
         return {type: GET_CART_FAILURE}
     }
+    // GET COMPANY DATA FROM CART URL-------------------------------------------------------------------------------->
+    export const GET_COMPANY_LOADING_fn=()=>{
+        return {type: GET_CART_REQUEST}
+    }
+    export const GET_COMPANY_SUCESS_fn=(payload)=>{
+        return {type: GET_CART_SUCCESS,payload}
+    }
+    export const GET_COMPANY_FAILURE_fn=()=>{
+        return {type: GET_CART_FAILURE}
+    }
 // ADD DATA TO THE CART URL-------------------------------------------------------------------------------->
     export const ADD_CART_REQUESTfn=()=>{
         return {type: ADD_CART_REQUEST}
@@ -93,13 +103,19 @@ import {
     // export const GET_PRODUCT_SEARCH_BAR_FAILURE_fn=()=>{
     //     return {type: GET_PRODUCTS_FAILURE_SEARCHBAR}
     // }
-
 // Get Products at Admin COURSE-------------------------------------------------------------------------------->
-    export const GET_PRODUCTS_COMPANY =() =>(dispatch)=>{
-        dispatch(GET_PRODUCT_LOADING_fn())
-       return axios.get("https://bustling-gleaming-office.glitch.me/studentcourses")
-        .then((r)=> {dispatch(GET_PRODUCT_SUCESS_fn(r.data))})
-        .catch((e)=>{GET_PRODUCT_FAILURE_fn(e)})
+export const GET_PRODUCTS_COMPANY =() =>(dispatch)=>{
+    dispatch(GET_PRODUCT_LOADING_fn())
+   return axios.get("https://bustling-gleaming-office.glitch.me/studentcourses")
+    .then((r)=> {dispatch(GET_PRODUCT_SUCESS_fn(r.data))})
+    .catch((e)=>{GET_PRODUCT_FAILURE_fn(e)})
+}
+// Get Products at STUDENTS COURSE-------------------------------------------------------------------------------->
+    export const GET_PRODUCTS_COMPANY_ADMIN =() =>(dispatch)=>{
+        dispatch(GET_COMPANY_LOADING_fn())
+       return axios.get("https://bustling-gleaming-office.glitch.me/companycourses")
+        .then((r)=> {dispatch(GET_COMPANY_SUCESS_fn(r.data))})
+        .catch((e)=>{GET_COMPANY_FAILURE_fn(e)})
     }
 // Add data to Admin course ------------------------------------------------------------------------------------>
     export const ADD_DATA_COMPANY_COURSE=(payload)=>(dispatch)=>{
@@ -108,6 +124,7 @@ import {
         .then((r)=>{ 
           dispatch(ADD_PRODUCT__SUCESS_fn(r.data))
           dispatch(GET_PRODUCTS_COMPANY())
+          dispatch(GET_PRODUCTS_COMPANY_ADMIN())
         })
      .catch((e)=>{ADD_PRODUCT__FAILURE_fn(e)})
     }
@@ -118,16 +135,18 @@ import {
         .then((r)=>{ 
           dispatch(ADD_PRODUCT__SUCESS_AGAIN_fn(r.data))
           dispatch(GET_PRODUCTS_COMPANY())
+          dispatch(GET_PRODUCTS_COMPANY_ADMIN())
         })
         .catch((e)=>{ADD_PRODUCT__FAILURE_AGAIN_fn(e)})
     }
 // Delete Data from Admin course--------------------------------------------------------------------------------->
     export const DELETE_DATA_COMPANY_COURSE=(id)=>(dispatch)=>{
         dispatch(DELETE_PRODUCT_REQUEST_fn)
-       return axios.delete(`https://bustling-gleaming-office.glitch.me/companycourses/${id}`)
+       return axios.delete(`https://bustling-gleaming-office.glitch.me/companycourse/${id}`)
         .then((r)=>{ 
           dispatch(DELETE_PRODUCT__SUCESS_fn())
           dispatch(GET_PRODUCTS_COMPANY())
+          dispatch(GET_PRODUCTS_COMPANY_ADMIN())
         }).catch((e)=>{DELETE_PRODUCT_FAILURE_fn(e)})
     }
 // Delete Data from Students site course------------------------------------------------------------------------->
@@ -142,7 +161,7 @@ import {
 // Edit data from Admin ----------------------------------------------------------------------------------->
     export const EDIT_DATA_COMPANY_COURSE =(id,payload) =>(dispatch)=>{
         dispatch({type:PATCH_BOOK_LOADING})
-       return axios.patch(`https://bustling-gleaming-office.glitch.me/companycourses/${id}`,payload)
+       return axios.patch(`https://bustling-gleaming-office.glitch.me/companycourse/${id}`,payload)
         .then((r)=>  ({type:PATCH_BOOK_SUCESS,payload:r.data}))
         .catch((e)=>({type:PATCH_BOOK_FAILURE,e}))
         
