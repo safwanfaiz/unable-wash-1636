@@ -20,7 +20,7 @@ export const getIntershipsFailure=()=>
 export const getInternshipsData=(params)=>dispatch=>
 {
     dispatch(getIntershipsRequest())
-    return axios.get(`http://localhost:8080/internData?_limit=${params}`).then(r=>{dispatch(getIntershipsSuccess(r.data))})
+    return axios.get(`https://bustling-gleaming-office.glitch.me/interndata?_limit=${params}`).then(r=>{dispatch(getIntershipsSuccess(r.data))})
     .catch(e=>{dispatch(getIntershipsFailure())})
 }
 
@@ -47,7 +47,7 @@ export const postIntershipsFailure=()=>
 export const postInternshipsData=(payload)=>dispatch=>
 {
     dispatch(postIntershipsSuccess())
-    return axios.post(`http://localhost:8080/internData`,payload).then(r=>{dispatch(getInternshipsData(10))})
+    return axios.post(`https://bustling-gleaming-office.glitch.me/interndata`,payload).then(r=>{dispatch(getInternshipsData(10))})
     .catch(e=>{dispatch(postIntershipsFailure())})
 }
 
@@ -74,7 +74,7 @@ export const patchIntershipsFailure=()=>
 export const patchInternshipsData=(payload)=>dispatch=>
 {
     dispatch(patchIntershipsRequest())
-    return axios.patch(`http://localhost:8080/internData/${payload.id}`,payload).then(r=>{dispatch(getInternshipsData(10))})
+    return axios.patch(`https://bustling-gleaming-office.glitch.me/interndata/${payload.id}`,payload).then(r=>{dispatch(getInternshipsData(10))})
     .catch(e=>{dispatch(patchIntershipsFailure())})
 }
 
@@ -101,7 +101,7 @@ export const deleteIntershipsFailure=()=>
 export const deleteInternshipsData=(id)=>dispatch=>
 {
     dispatch(deleteIntershipsRequest())
-    return axios.delete(`http://localhost:8080/internData/${id}`).then(r=>{dispatch(getIntershipsSuccess(10))})
+    return axios.delete(`https://bustling-gleaming-office.glitch.me/interndata/${id}`).then(r=>{dispatch(getIntershipsSuccess(10))})
     .catch(e=>{dispatch(deleteIntershipsFailure())})
 }
 

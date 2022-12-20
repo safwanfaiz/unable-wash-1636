@@ -33,8 +33,8 @@ export const MainRoutes=()=>{
       <Route path="/profile" element={<Profile />} />
       <Route path='/login/student' element={<LoginPage/>}/>
       <Route path='/login/company' element={<LoginPage/>}/>
-      <Route path='/register/student' element={<SignUp/>}/>
-      <Route path='/register/student' element={<SignUp/>}/>
+      <Route path='/register/student' element={<LoginPage/>}/>
+      <Route path='/register/company' element={<LoginPage/>}/>
       <Route path="/admin" element={<Admin/>}/> 
       <Route path='/cart' element={<CartPage/>}/>
       <Route path='/course' element={<CoursePage/>}/>
