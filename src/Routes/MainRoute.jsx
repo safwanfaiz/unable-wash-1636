@@ -36,7 +36,7 @@ export const MainRoutes=()=>{
       <Route path='/register/student' element={<SignUp/>}/>
       <Route path='/register/student' element={<SignUp/>}/>
       <Route path="/admin" element={<Admin/>}/> 
-      <Route path='/cart' element={<PrivateRoute><CartPage/></PrivateRoute>}/>
+      <Route path='/cart' element={<CartPage/>}/>
       <Route path='/course' element={<CoursePage/>}/>
       <Route path='/cart/:id' element={<h1>Singelpage</h1>}/>
       <Route path="/:displayName/:id/:title/edit" element={<EditCartData/>} />

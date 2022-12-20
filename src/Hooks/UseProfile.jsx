@@ -34,8 +34,6 @@ const UseProfile = (props) => {
       setUserEmail(user.email)
       setUserPhoto(user.photoURL)
       setUserToken(user.accessToken)
-      dispatch(GET_AUTH_SUCESS_fn({uid_token:""})).then((r)=>{
-        });
     } else {
       setDisplayName('')
       setAvatar(false)

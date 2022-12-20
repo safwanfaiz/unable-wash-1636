@@ -116,12 +116,22 @@ function Navbar(props) {
                 </svg>
               </div>
               <div className="side_menu_content">
-                <NavLink to="/dashboard">
+                <NavLink to="/admin">
                   <p
                     onClick={() => setMenu(logo)}
                     style={{ color: "black" }}
                   >
-                    Dashboard
+                    Company
+                  </p>
+                </NavLink>
+              </div>
+              <div className="side_menu_content">
+                <NavLink to="/course">
+                  <p
+                    onClick={() => setMenu(logo)}
+                    style={{ color: "black" }}
+                  >
+                    Student
                   </p>
                 </NavLink>
               </div>
@@ -371,6 +381,7 @@ function Navbar(props) {
                   <path fill="none" d="M0 0h24v24H0z"></path>
                 </svg>
               </div>
+              
             </div>
             <div id="div_2_1" className="hidden visible">
               <div className="side_menu_svg_cont"></div>
