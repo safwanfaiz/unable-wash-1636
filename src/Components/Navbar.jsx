@@ -16,9 +16,10 @@ function Navbar(props) {
   const dispatch = useDispatch();
   const CARTDATA = useSelector((state) => state.AppReducer.cart);
   useEffect(() => {
-   if(CARTDATA.length===0){
+   if(CARTDATA.length>=0){
     dispatch(GET_CART_DATA())
    }}, []);
+   console.log(CARTDATA,"item")
   const {avatar, displayName, userEmail,userPhoto, HandleLogOut} =UseProfile()
   let logo = false;
   let sty;
