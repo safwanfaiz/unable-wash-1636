@@ -16,9 +16,14 @@ app development, R programming among others.
 
 ## Responsiv Version of Home Page
 
+![Responsive ness](https://user-images.githubusercontent.com/102036593/208623679-bec8d2c6-7977-4824-af77-e525dac3750a.jpg)
+
 ## SignUp
 
+![Login_Es](https://user-images.githubusercontent.com/102036593/208624004-a1175007-7b77-4716-b4cd-4cb65eb4c9de.jpg)
 ## Login 
+
+![Login_Es](https://user-images.githubusercontent.com/102036593/208624004-a1175007-7b77-4716-b4cd-4cb65eb4c9de.jpg)
 
 ## Course
 
