@@ -16,7 +16,7 @@ const initialState = {
     courseData: [],
   searchData: [],
   cartData: [],
-  applyData: {},
+  company: [],
   
   };
   
@@ -88,7 +88,7 @@ const initialState = {
     case types.GET_CART_REQUEST:
       return { ...state, isLoading: true };
     case types.GET_CART_SUCCESS:
-      return { ...state, isLoading: false, cart: action.payload };
+      return { ...state, isLoading: false, company: action.payload };
     case types.GET_CART_FAILURE:
       return { ...state, isLoading: false, isError: true };
 
