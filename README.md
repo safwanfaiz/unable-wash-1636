@@ -10,7 +10,9 @@ Mumbai, Hyderabad, Pune, and Delhi. Moreover, they offer upskilling courses on t
 app development, R programming among others. 
 
 
-## Hom pge 
+## Home page 
+
+![home_ES](https://user-images.githubusercontent.com/102036593/208623239-1e54ef82-44de-4aeb-a55e-87b205d5734a.jpg)
 
 ## Responsiv Version of Home Page
 
