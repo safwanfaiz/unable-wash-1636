@@ -28,7 +28,7 @@ app development, R programming among others.
 
 ## admin panel Edit Page
 
-##LInks: 
+## LInks: 
 
 ### Clone website of  https://www.interntheory.com/
 ### live Link https://expirianceshala.vercel.app/
