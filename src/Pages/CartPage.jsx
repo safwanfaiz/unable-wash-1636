@@ -26,7 +26,6 @@ const CartPage = () => {
         )
         
     },[])
-    console.log(TotalPrice)
     const HandelCheckout=()=>{
       alert("Purchase completed"+"\n"+`Order Id ${Date.now()}`)
       navigate("/")
