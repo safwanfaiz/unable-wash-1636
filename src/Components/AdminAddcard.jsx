@@ -9,7 +9,8 @@ const [form, setForm]= useState({
   title: "",
   image: "",
   description:"",
-  season: null
+  newPrice: null,
+  oldPrice:null,
 })
 const dispatch = useDispatch();
 const formclear =()=>{
@@ -18,7 +19,8 @@ const formclear =()=>{
     title: "",
     image: "",
     description:"",
-    season: ""
+    newPrice: null,
+    oldPrice:null,
   })
   toast.success("Form is cleared")
 }
@@ -41,10 +43,11 @@ const OnsubmitPress =(e)=>{
     })
     setForm({
       ...form,
-        title: "",
-        image: "",
-        description:"",
-        season: ""
+      title: "",
+    image: "",
+    description:"",
+    newPrice: null,
+    oldPrice:null,
     })
     toast.success("Data added sucesfully")
   }
@@ -87,9 +90,13 @@ const OnsubmitPress =(e)=>{
                   <Input type="text" onChange={OnChangeValue}  name="description"  />
                 </FormControl>
             <FormControl id="Time" isRequired>
-              <FormLabel>Seasons</FormLabel>
-              <Input type="text" onChange={OnChangeValue}  name="season"/>
-            </FormControl>   
+              <FormLabel>Old Price</FormLabel>
+              <Input type="text" onChange={OnChangeValue}  name="oldPrice"/>
+            </FormControl>  
+            <FormControl id="Time" isRequired>
+              <FormLabel>New Price</FormLabel>
+              <Input type="text" onChange={OnChangeValue}  name="newPrice"/>
+            </FormControl>  
             <Stack pt={5} spacing={6} direction={['column', 'row']}>
           <Box><Button
             bg={'red.400'}
