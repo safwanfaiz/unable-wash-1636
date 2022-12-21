@@ -16,7 +16,7 @@ app development, R programming among others.
 
 ## Responsiv Version of Home Page
 
-![Responsive ness](https://user-images.githubusercontent.com/102036593/208623679-bec8d2c6-7977-4824-af77-e525dac3750a.jpg)
+
 
 ## SignUp
 
