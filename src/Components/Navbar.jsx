@@ -4,7 +4,7 @@ import "./navbar.css";
 import {  Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import inter_job from "../Assets/experianceshalaV.jpg";
-import { Box, Button, HStack, Image, Text, useDisclosure } from "@chakra-ui/react";
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Avatar, Box, Button, HStack, Image, Text, useDisclosure } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { IoClose } from 'react-icons/io5';
 import { HiShoppingCart } from 'react-icons/hi2';
@@ -19,7 +19,6 @@ function Navbar(props) {
    if(CARTDATA.length>=0){
     dispatch(GET_CART_DATA())
    }}, []);
-   console.log(CARTDATA,"item")
   const {avatar, displayName, userEmail,userPhoto, HandleLogOut} =UseProfile()
   let logo = false;
   let sty;
@@ -43,11 +42,11 @@ function Navbar(props) {
     };
   }
   
- 
+ console.log(avatar,"avatar")
   return (
     <div className="parent">
       
-      <nav>
+      <nav className="nav-bar">
         <div className="side_menu" id="side_bar" style={sty}>
           <Box pl={5} pt={1}  >
 
@@ -71,9 +70,8 @@ function Navbar(props) {
               </div>
              
               <div className="side_menu_content_2">
-                <h1 id="full_name">{displayName}</h1>
-                <p id="mobile_no">{userEmail}</p>
-              </div>
+                {avatar?<h1 id="full_name">{displayName}</h1>:""}
+                {avatar?<p id="mobile_no">{userEmail}</p>:""} </div>
             </div>
 
             <div className="visible after_login">
@@ -123,16 +121,6 @@ function Navbar(props) {
                     style={{ color: "black" }}
                   >
                     Company
-                  </p>
-                </NavLink>
-              </div>
-              <div className="side_menu_content">
-                <NavLink to="/course">
-                  <p
-                    onClick={() => setMenu(logo)}
-                    style={{ color: "black" }}
-                  >
-                    Student
                   </p>
                 </NavLink>
               </div>
@@ -242,29 +230,6 @@ function Navbar(props) {
                     Courses
                   </p>
                 </NavLink>
-
-                <svg
-                  className="drop_down"
-                  id="drop_down_1"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  role="presentation"
-                >
-                  <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path>
-                  <path fill="none" d="M0 0h24v24H0z"></path>
-                </svg>
-                <svg
-                  className="drop_up"
-                  id="drop_up_1"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  role="presentation"
-                >
-                  <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"></path>
-                  <path fill="none" d="M0 0h24v24H0z"></path>
-                </svg>
               </div>
             </div>
             <div id="div_1_1" className="hidden visible">
@@ -284,18 +249,7 @@ function Navbar(props) {
               </div>
             </div>
             <div className="visible when_login">
-              <div className="side_menu_svg_cont">
-                <svg
-                  className="side_menu_svg"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  role="presentation"
-                >
-                  <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"></path>
-                  <path fill="none" d="M0 0h24v24H0z"></path>
-                </svg>
-              </div>
+   
               <div className="side_menu_content">
                 <p>Transactions</p>
               </div>
@@ -335,115 +289,99 @@ function Navbar(props) {
               </div>
             </div>
             <div className="line_break"></div>
-            <div className="visible after_login">
-              <div className="side_menu_svg_cont">
-                <svg
-                  className="side_menu_svg"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  role="presentation"
-                >
-                  <path fill="none" d="M0 0h24v24H0z"></path>
-                  <path d="M3 18h12v-2H3v2zM3 6v2h18V6H3zm0 7h18v-2H3v2z"></path>
-                </svg>
-              </div>
-              <div className="side_menu_content">
-                <NavLink to="/login/company">
-                  {" "}
-                  <p
-                    onClick={() => setMenu(logo)}
-                    style={{ color: "black" }}
-                  >
-                    Register
-                  </p>
-                </NavLink>
+           
 
-                <svg
-                  className="drop_down"
-                  id="drop_down_2"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  role="presentation"
-                >
-                  <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path>
-                  <path fill="none" d="M0 0h24v24H0z"></path>
-                </svg>
-                <svg
-                  className="drop_up"
-                  id="drop_up_2"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  role="presentation"
-                >
-                  <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"></path>
-                  <path fill="none" d="M0 0h24v24H0z"></path>
-                </svg>
-              </div>
-              
-            </div>
-            <div id="div_2_1" className="hidden visible">
-              <div className="side_menu_svg_cont"></div>
-              <div className="side_menu_content">
-                <p>Company</p>
-              </div>
-            </div>
-            <div id="div_2_2" className="hidden visible">
-              <div className="side_menu_svg_cont"></div>
-              <div className="side_menu_content">
-                <p>Student</p>
-              </div>
-            </div>
-            <div className="visible after_login">
-              <div className="side_menu_svg_cont">
-                <svg
-                  className="side_menu_svg"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  role="presentation"
-                >
-                  <path fill="none" d="M0 0h24v24H0z"></path>
-                  <path d="M14 6v15H3v-2h2V3h9v1h5v15h2v2h-4V6h-3zm-4 5v2h2v-2h-2z"></path>
-                </svg>
-              </div>
-              <div className="side_menu_content">
-                <NavLink to="/login">
-                  {" "}
-                  <p
-                    onClick={() => setMenu(logo)}
-                    style={{ color: "black" }}
-                  >
-                    Login
-                  </p>
-                </NavLink>
+              <div >
+              <Accordion w={170} borderColor={"#fff"} allowMultiple>
+              <AccordionItem>
+                <h2>
+                  <AccordionButton >
+                    <Box as="span" flex='1' >
+                      <HStack >
+                                <div className="side_menu_svg_cont">
+                          <svg
+                            className="side_menu_svg"
+                            focusable="false"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                            role="presentation"
+                          >
+                            <path fill="none" d="M0 0h24v24H0z"></path>
+                            <path d="M3 18h12v-2H3v2zM3 6v2h18V6H3zm0 7h18v-2H3v2z"></path>
+                          </svg>
+                        </div>
+                        <Text pl={7}>
+                        Register
+                        </Text>
+                      </HStack>
+                   
+                    </Box>
+                    <Box pl={10}  >
 
-                <svg
-                  className="drop_down"
-                  id="drop_down_3"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  role="presentation"
-                >
-                  <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path>
-                  <path fill="none" d="M0 0h24v24H0z"></path>
-                </svg>
-                <svg
-                  className="drop_up"
-                  id="drop_up_3"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  role="presentation"
-                >
-                  <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"></path>
-                  <path fill="none" d="M0 0h24v24H0z"></path>
-                </svg>
-              </div>
-            </div>
+                    
+                    <AccordionIcon  />
+                    </Box>
+                  </AccordionButton>
+                </h2>
+                <NavLink to={"/register/company"}>
+                <AccordionPanel pl={16} color={"blackAlpha.900"} fontSize={"sm"} fontWeight={"15px"} pb={4}>
+                  Company
+                </AccordionPanel>
+                </NavLink>
+                <NavLink to={"/register/student"}>
+                <AccordionPanel pl={16} color={"blackAlpha.900"} fontSize={"sm"} fontWeight={"15px"} pb={4}>
+                   Student
+                </AccordionPanel>
+                </NavLink>
+              </AccordionItem>
+            </Accordion>
+                </div>
+
+                <Accordion w={170} borderColor={"#fff"} allowMultiple>
+              <AccordionItem>
+                <h2>
+                  <AccordionButton >
+                    <Box as="span" flex='1' >
+                      <HStack >
+                      <div className="side_menu_svg_cont">
+                            <svg
+                              className="side_menu_svg"
+                              focusable="false"
+                              viewBox="0 0 24 24"
+                              aria-hidden="true"
+                              role="presentation"
+                            >
+                              <path fill="none" d="M0 0h24v24H0z"></path>
+                              <path d="M14 6v15H3v-2h2V3h9v1h5v15h2v2h-4V6h-3zm-4 5v2h2v-2h-2z"></path>
+                            </svg>
+                            </div>
+                          
+                        <Text pl={7}>
+                        Login
+                        </Text>
+                      </HStack>
+                   
+                    </Box>
+                    <Box pl={10}  >
+
+                    
+                    <AccordionIcon  />
+                    </Box>
+                  </AccordionButton>
+                </h2>
+                <NavLink to={"/login/company"}>
+                <AccordionPanel pl={16} color={"blackAlpha.900"} fontSize={"sm"} fontWeight={"15px"} pb={4}>
+                   Company
+                </AccordionPanel>
+                </NavLink>
+                <NavLink to={"/login/student"}>
+                <AccordionPanel className="side_menu_content" pl={16} color={"blackAlpha.900"} fontSize={"sm"} fontWeight={"15px"} pb={4}>
+                  Student
+                </AccordionPanel>
+                </NavLink>
+              </AccordionItem>
+            </Accordion>
+
             <div
               id="div_3_1"
               className="hidden visible"
@@ -487,18 +425,6 @@ function Navbar(props) {
               </div>
             </div>
             <div className="visible when_login">
-              <div className="side_menu_svg_cont">
-                <svg
-                  className="side_menu_svg"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  role="presentation"
-                >
-                  <path fill="none" d="M0 0h24v24H0z"></path>
-                  <path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"></path>
-                </svg>
-              </div>
               <div className="side_menu_content" >
                 
               {avatar?<HStack   alignItems={"center"} justifyContent={"center"}><Text as={"b"} color={"red.500"} fontSize={"2xl"} >Logout</Text><Link to={"/"}> <Button   bg={"gray.300"} color={"red.500"}  onClick={HandleLogOut}> <GiPowerButton size={20} color={"red.500"}/></Button></Link></HStack>:""}
@@ -523,16 +449,16 @@ function Navbar(props) {
           <button className="butt">signup</button>
         </NavLink>
       </div>}
-
+            
         <div className="cart_btn when_login new_right">
           <NavLink to="/profile">
-          <Image mt={1} w={9} borderRadius={"50%"} src={userPhoto} alt={displayName}/>
+          {avatar?<Image mt={1} w={9} borderRadius={"50%"} src={userPhoto} alt={displayName}/>:""}
 
           </NavLink>
         </div>
         <div className="cart_btn">
           <NavLink to="/cart">
-          <Box  variant='ghost'  _hover={{bg:" rgba(102, 102, 102, 0.2)",borderRadius:"50%"}} mt={2}  _active={{transform: "rotate(15deg)"}}    >
+          <Box    variant='ghost'  _hover={{bg:" rgba(102, 102, 102, 0.2)",borderRadius:"50%"}} mt={2}  _active={{transform: "rotate(15deg)"}}    >
              <HiShoppingCart color="black" size={30}/>
            </Box>
             

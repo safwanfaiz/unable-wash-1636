@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { AdminAddcard } from '../Components/AdminAddcard'
 import AdmindataManage from '../Components/AdmindataManage'
-import { GET_PRODUCTS, GET_PRODUCTS_COMPANY, GET_PRODUCTS_COMPANY_ADMIN } from '../Redux/App/action'
+import {  GET_PRODUCTS_COMPANY_ADMIN } from '../Redux/App/action'
 
 export const Admin = () => {
   const PRODUCTS= useSelector((state)=> state.AppReducer.company)

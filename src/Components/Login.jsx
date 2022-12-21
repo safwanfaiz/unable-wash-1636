@@ -52,13 +52,13 @@ signInWithEmailAndPassword(UserAuth, email, password)
     const Loguser = userCredential.user;
     console.log(Loguser)
     setisSigninLoading(false);
-    // toast.success("Login Sucessfull")
+    toast.success("Login Sucessfull")
     navigate("/")
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    // toast.error(errorCode,errorMessage)
+    toast.error(errorCode,errorMessage)
     setisSigninLoading(false);
   });
     setState({email: "",
@@ -69,7 +69,7 @@ signInWithEmailAndPassword(UserAuth, email, password)
     setState({...state,[name]:value})
   };
   return (
-    <Flex justify={"center"} align={"center"} mt={0} boxShadow='dark-md'   borderBottomRightRadius={7} 
+    <Flex justify={"center"} align={"center"} mt={0} boxShadow='dark-md'   borderBottomRadius={7} 
     minH={['50vh']}
     bg={useColorModeValue('gray.50', 'gray.800')}>
     <Stack  mx={'auto'} maxW={'lg'}>

@@ -1,16 +1,17 @@
 import React,{  useState }  from 'react'
-import {Flex,Box,FormControl,FormLabel,Input,Stack,Button, Heading, Text, useColorModeValue, Container,} from '@chakra-ui/react';
+import {Flex,Box,FormControl,FormLabel,Input,Stack,Button, Heading, Text, useColorModeValue, Container, Hide,} from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
 import { ADD_DATA, ADD_DATA_COMPANY_COURSE, ADD_DATA_STUDENT_COURSE, ADD_DATA_TO_WATCH_PRE } from '../Redux/App/action';
 import { toast } from 'react-toastify';
+import UseProfile from '../Hooks/UseProfile';
 export const AdminAddcard =()=> {
-  
+  const {useruid} =UseProfile()
 const [form, setForm]= useState({
-  title: "",
   image: "",
-  description:"",
+  des:"",
   newPrice: "",
   oldPrice:"",
+  user_id: useruid,
 })
 const dispatch = useDispatch();
 const formclear =()=>{
@@ -21,6 +22,7 @@ const formclear =()=>{
     desc:"",
     newPrice: null,
     oldPrice:null,
+    user_id:useruid,
   })
 }
 
@@ -36,8 +38,8 @@ setForm({
 const OnsubmitPress =(e)=>{
   e.preventDefault();
 
-    dispatch(ADD_DATA_COMPANY_COURSE({...form})).then((r)=>{
-    })
+    // dispatch(ADD_DATA_COMPANY_COURSE({...form})).then((r)=>{
+    // })
     dispatch(ADD_DATA_STUDENT_COURSE({...form})).then((r)=>{
     })
     setForm({
@@ -47,7 +49,9 @@ const OnsubmitPress =(e)=>{
     desc:"",
     newPrice: null,
     oldPrice:null,
+
     })
+    toast.success("Item add in Course page from Admin page")
   }
 
 
@@ -94,7 +98,13 @@ const OnsubmitPress =(e)=>{
             <FormControl id="Time" isRequired>
               <FormLabel>New Price</FormLabel>
               <Input type="text" onChange={OnChangeValue}  name="newPrice"/>
+            </FormControl> 
+            <Hide>
+            <FormControl >
+              
+              <Input type="text" onChange={OnChangeValue} value={useruid}  name="user_id"/>
             </FormControl>  
+            </Hide> 
             <Stack pt={5} spacing={6} direction={['column', 'row']}>
           <Box><Button
             bg={'red.400'}

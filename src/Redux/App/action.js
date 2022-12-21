@@ -1,17 +1,7 @@
 
 import axios from "axios";
 import { 
-    
-    GET_COURSE_DATA_FAILURE,
-  GET_COURSE_DATA_REQUEST,
-  GET_COURSE_DATA_SUCCESS,
-  POST_ADDTOCART_FAILURE,
-  POST_ADDTOCART_REQUEST,
-  POST_ADDTOCART_SUCCESS,
-    
-    
-    
-    ADD_CART_FAILURE, ADD_CART_REQUEST, ADD_CART_SUCCESS, ADD_PRODUCT_FAILURE, ADD_PRODUCT_REQUEST, ADD_PRODUCT_REQUEST_AGAIN, ADD_PRODUCT_SUCCESS, ADD_PRODUCT_SUCCESS_AGAIN, DELETE_PRODUCT_FAILURE, DELETE_PRODUCT_FAILURE_AGAIN, DELETE_PRODUCT_REQUEST, DELETE_PRODUCT_REQUEST_AGAIN, DELETE_PRODUCT_SUCCESS, DELETE_PRODUCT_SUCCESS_AGAIN, GET_CART_FAILURE, GET_CART_REQUEST, GET_CART_SUCCESS, GET_PRODUCTS_FAILURE, GET_PRODUCTS_REQUEST, GET_PRODUCTS_SUCCESS, PATCH_BOOK_FAILURE, PATCH_BOOK_LOADING, PATCH_BOOK_SUCESS } from "./actionTypes"
+    ADD_CART_FAILURE, ADD_CART_REQUEST, ADD_CART_SUCCESS, ADD_PRODUCT_FAILURE, ADD_PRODUCT_REQUEST, ADD_PRODUCT_REQUEST_AGAIN, ADD_PRODUCT_SUCCESS, ADD_PRODUCT_SUCCESS_AGAIN, DELETE_ALL_CART_DATA_FAILURE, DELETE_ALL_CART_DATA_REQUEST, DELETE_ALL_CART_DATA_SUCCESS, DELETE_PRODUCT_FAILURE, DELETE_PRODUCT_FAILURE_AGAIN, DELETE_PRODUCT_REQUEST, DELETE_PRODUCT_REQUEST_AGAIN, DELETE_PRODUCT_SUCCESS, DELETE_PRODUCT_SUCCESS_AGAIN, GET_CART_FAILURE, GET_CART_REQUEST, GET_CART_SUCCESS, GET_PRODUCTS_FAILURE, GET_PRODUCTS_REQUEST, GET_PRODUCTS_SUCCESS, PATCH_BOOK_FAILURE, PATCH_BOOK_LOADING, PATCH_BOOK_SUCESS } from "./actionTypes"
 // GET STDUENT COURSE URL-------------------------------------------------------------------------------->
     export const GET_PRODUCT_LOADING_fn=()=>{
         return {type: GET_PRODUCTS_REQUEST}
@@ -97,12 +87,18 @@ import {
         return {type: ADD_CART_FAILURE}
     }
 
-        // export const GET_PRODUCT_SEARCH_BAR_SUCESS_fn=(payload)=>{
-    //     return {type: GET_PRODUCTS_SUCCESS_SEARCHBAR,payload}
-    // }
-    // export const GET_PRODUCT_SEARCH_BAR_FAILURE_fn=()=>{
-    //     return {type: GET_PRODUCTS_FAILURE_SEARCHBAR}
-    // }
+
+
+// CART ALL DATA DELETE FROM URL-------------------------------------------------------------------------------->
+    export const DELETE_ALL_CART_REQUEST_fn=()=>{
+        return {type: DELETE_ALL_CART_DATA_REQUEST}
+    }
+    export const DELETE_ALL_CART_SUCESS_fn=(id)=>{
+        return {type: DELETE_ALL_CART_DATA_SUCCESS,payload:id}
+    }
+    export const DELETE_ALL_CART_FAILURE_fn=()=>{
+        return {type: DELETE_ALL_CART_DATA_FAILURE}
+    }
 // Get Products at Admin COURSE-------------------------------------------------------------------------------->
 export const GET_PRODUCTS_COMPANY =() =>(dispatch)=>{
     dispatch(GET_PRODUCT_LOADING_fn())
@@ -133,7 +129,7 @@ export const GET_PRODUCTS_COMPANY =() =>(dispatch)=>{
         dispatch(ADD_PRODUCT_REQUEST_AGAIN_fn)
        return axios.post("https://bustling-gleaming-office.glitch.me/studentcourses",payload)
         .then((r)=>{ 
-          dispatch(ADD_PRODUCT__SUCESS_AGAIN_fn(r.data))
+        //   dispatch(ADD_PRODUCT__SUCESS_AGAIN_fn(r.data))
           dispatch(GET_PRODUCTS_COMPANY())
           dispatch(GET_PRODUCTS_COMPANY_ADMIN())
         })
@@ -154,7 +150,7 @@ export const GET_PRODUCTS_COMPANY =() =>(dispatch)=>{
         dispatch(DELETE_PRODUCT_REQUEST_AGAIN_fn)
        return axios.delete(`https://bustling-gleaming-office.glitch.me/studentcourses/${id}`)
         .then((r)=>{ 
-          dispatch(DELETE_PRODUCT__SUCESS_AGAIN_fn())
+        //   dispatch(DELETE_PRODUCT__SUCESS_AGAIN_fn())
           dispatch(GET_PRODUCTS_COMPANY())
         }).catch((e)=>{DELETE_PRODUCT_FAILURE_AGAIN_fn(e)})
     }
@@ -207,7 +203,24 @@ export const GET_PRODUCTS_COMPANY =() =>(dispatch)=>{
           });
       };
       
+// REMOVE ALL DATA FROM CART URL AND CART STORE URL-------------------------------------------------------------------------------->     
+export const REMOVE_ALL_DATA_FROM_CART = (CARTDATA) => (dispatch) => {
+    CARTDATA.forEach((p) => {
+ console.log(p.id,"array")
+    dispatch( DELETE_ALL_CART_REQUEST_fn());
+    return axios
+      .delete(`https://bustling-gleaming-office.glitch.me/cart/${p.id}`)
+      .then((res) => {
+        dispatch( DELETE_ALL_CART_SUCESS_fn());
+        dispatch(GET_CART_DATA());
+      })
+      .catch((e) => {
+        dispatch(DELETE_ALL_CART_FAILURE_fn(e));
 
+      });
+    });
+  };
+  
     // Get Products at NAvBAR Search------------------------------------------------------------------------>
     // export const GET_PRODUCT_SEARCH =(params) =>(dispatch)=>{
     //     dispatch(GET_PRODUCT_SEARCH_BAR_LOADING_fn())
@@ -216,25 +229,9 @@ export const GET_PRODUCTS_COMPANY =() =>(dispatch)=>{
     //     .catch((e)=>{(GET_PRODUCT_SEARCH_BAR_FAILURE_fn())})
     // }
 //SHAIK------------------------------------------------------------->
-export const getCourses =()=> async (dispatch) => {
-    dispatch({type:GET_COURSE_DATA_REQUEST});
-    try {
-      const res = await axios
-        .get(" http://localhost:8080/courses");
-      dispatch({type:GET_COURSE_DATA_SUCCESS,payload:res.data});
-    } catch (err) {
-      dispatch({type:GET_COURSE_DATA_FAILURE});
-    }
-  };
-  export const addToCart =(data)=> async (dispatch) => {
-    dispatch({type:POST_ADDTOCART_REQUEST});
-    axios
-      .post("http://localhost:8080/cart", data)
-      .then((res) => {
-       dispatch({type:POST_ADDTOCART_SUCCESS,payload:res.data})
-       alert("item successfully Added")
-      })
-      .catch((err) => {
-        dispatch({type:POST_ADDTOCART_FAILURE})
-      });
-  };
+        // export const GET_PRODUCT_SEARCH_BAR_SUCESS_fn=(payload)=>{
+    //     return {type: GET_PRODUCTS_SUCCESS_SEARCHBAR,payload}
+    // }
+    // export const GET_PRODUCT_SEARCH_BAR_FAILURE_fn=()=>{
+    //     return {type: GET_PRODUCTS_FAILURE_SEARCHBAR}
+    // }

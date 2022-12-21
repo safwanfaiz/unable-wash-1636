@@ -18,6 +18,7 @@
     "get-google-fonts": "^1.2.2",
     "json-server": "^0.17.1",
     "react": "^18.2.0",
+    "react-custom-scroll": "^4.4.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.6.0",
     "react-razorpay": "^1.2.0",
