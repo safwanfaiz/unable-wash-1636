@@ -20,7 +20,7 @@ export const getJobsFailure=()=>
 export const getJobsData=(params)=>dispatch=>
 {
     dispatch(getJobsRequest())
-    return axios.get(`http://localhost:8080/jobData`).then(r=>{dispatch(getJobsSuccess(r.data))})
+    return axios.get(`https://bustling-gleaming-office.glitch.me/jobData`).then(r=>{dispatch(getJobsSuccess(r.data))})
     .catch(e=>{dispatch(getJobsFailure())})
 }
 
@@ -47,7 +47,7 @@ export const postJobsFailure=()=>
 export const postJobsData=(payload)=>dispatch=>
 {
     dispatch(postJobsRequest())
-    return axios.post(`http://localhost:8080/jobData`,payload).then(r=>{dispatch(getJobsData())})
+    return axios.post(`https://bustling-gleaming-office.glitch.me/jobData`,payload).then(r=>{dispatch(getJobsData())})
     .catch(e=>{dispatch(postJobsFailure())})
 }
 
@@ -74,7 +74,7 @@ export const patchJobsFailure=()=>
 export const patchJobsData=(payload)=>dispatch=>
 {
     dispatch(patchJobsRequest())
-    return axios.patch(`http://localhost:8080/jobData/${payload.id}`,payload).then(r=>{dispatch(getJobsData())})
+    return axios.patch(`https://bustling-gleaming-office.glitch.me/jobData/${payload.id}`,payload).then(r=>{dispatch(getJobsData())})
     .catch(e=>{dispatch(patchJobsFailure())})
 }
 
@@ -101,7 +101,7 @@ export const deleteJobsFailure=()=>
 export const deleteJobsData=(id)=>dispatch=>
 {
     dispatch(deleteJobsRequest())
-    return axios.delete(`http://localhost:8080/jobData/${id}`).then(r=>{dispatch(getJobsData())})
+    return axios.delete(`https://bustling-gleaming-office.glitch.me/jobData/${id}`).then(r=>{dispatch(getJobsData())})
     .catch(e=>{dispatch(deleteJobsFailure())})
 }
 

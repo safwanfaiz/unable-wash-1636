@@ -1,20 +1,19 @@
-import React,{ useEffect, useState,  }  from 'react'
+import React,{ useEffect,   }  from 'react'
 import {Flex,Box,Stack,Button, Heading, Text,  Container, VStack,  Image,} from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
-import { DELETE_DATA, DELETE_DATA_COMPANY_COURSE, DELETE_DATA_STUDENT_COURSE, DELETE_DATA_TO_WATCH_PRE, GET_PRODUCTS, GET_PRODUCTS_COMPANY } from '../Redux/App/action';
+import {  DELETE_DATA_STUDENT_COURSE, GET_PRODUCTS_COMPANY } from '../Redux/App/action';
 import { useNavigate,  } from 'react-router-dom';
-import { onAuthStateChanged } from 'firebase/auth';
-import { UserAuth } from '../Utils/firebase-config';
 import { toast } from 'react-toastify';
+import UseProfile from '../Hooks/UseProfile';
 const AdmindataManage  = () => {
-  const [displayName,setDisplayName]=useState('');
-    const PRODUCTS= useSelector((state)=> state.AppReducer.company)
+    const {displayName}=UseProfile()
+    const PRODUCTS= useSelector((state)=> state.AppReducer.products)
     const dispatch =useDispatch();
     const navigate =useNavigate();
-    const handelDeletedata =(id)=>{
-        dispatch(DELETE_DATA_COMPANY_COURSE(id))  
+    const handelDeletedata =(id)=>{  
         dispatch(DELETE_DATA_STUDENT_COURSE(id))
+        toast.error("item Deleted")
         
     }
     const handleEdit =(id,title)=>{
@@ -25,15 +24,7 @@ const AdmindataManage  = () => {
           dispatch(GET_PRODUCTS_COMPANY())
       }
   },[])
-  useEffect(()=>{
-    onAuthStateChanged(UserAuth, (user) => {
-      if (user) {
-        setDisplayName(user.displayName)
-      } else {
-        setDisplayName('')
-      }
-    });
-  },[])
+  
 
   return (
     <>
@@ -50,19 +41,19 @@ const AdmindataManage  = () => {
             Admin's added Products
           </Heading>
           {/* maping----------------------------------> */}
-          
+      
          <Box border={"1px solid red"} overflow="auto" h={300} mt={5}  
-  sx={{
-    '&::-webkit-scrollbar': {
-      width: '16px',
-      borderRadius: '8px',
-      backgroundColor: `rgba(0, 0, 0, 0.05)`,
-    },
-    '&::-webkit-scrollbar-thumb': {
-      backgroundColor: `rgba(0, 0, 0, 0.05)`,
-    },
-  }}>
-          {PRODUCTS.length> 0 && PRODUCTS.map((item)=>
+              sx={{
+                '&::-webkit-scrollbar': {
+                  width: '16px',
+                  borderRadius: '8px',
+                  backgroundColor: `rgba(0, 0, 0, 0.05)`,
+                },
+                '&::-webkit-scrollbar-thumb': {
+                  backgroundColor: `rgba(0, 0, 0, 0.05)`,
+                },
+              }}>
+                      {PRODUCTS.length> 0 && PRODUCTS.map((item)=>
                   <VStack  key={item.id} bg={"whiteAlpha.800"} color={"blackAlpha.900"} p={10} alignItems={"center"} justifyContent={"center"} boxShadow='md' borderRadius={5}>
                     <Image m={0} width={100} height={57} src={item.image} alt={item.name}/>
                     <VStack>
@@ -99,8 +90,8 @@ const AdmindataManage  = () => {
                   </VStack>
           )}</Box></Stack>
           
-          {PRODUCTS.length>2?<Text mt={-20} p={0} as={"b"} textAlign={"center"} color={"red.500"} fontSize={"2xs"}>Scroll Down</Text>:""}
-          <Text as={"b"} textAlign={"center"} color={"blackAlpha.900"} fontSize={"2xl"}>Total Content available: {PRODUCTS.length }</Text>
+          {PRODUCTS.length>2?<Text mt={-20} p={0} as={"b"} textAlign={"center"} color={"red.500"} fontSize={"2xs"}>Scroll </Text>:""}
+          {/* <Text as={"b"} textAlign={"center"} color={"blackAlpha.900"} fontSize={"2xl"}>Total Content available: {PRODUCTS.length }</Text> */}
        </Stack>
     </Flex>
     </Container>: <Flex justify={"center"} align="center" border={"1px solid red"} overflow="auto" h={300} w={450} mt={5}  >

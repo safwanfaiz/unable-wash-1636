@@ -1,9 +1,7 @@
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify';
-import { GET_AUTH_FAILURE_fn, GET_AUTH_SUCESS_fn } from '../Redux/Auth/action';
 import { UserAuth } from '../Utils/firebase-config';
 
 const UseProfile = (props) => {
@@ -13,16 +11,15 @@ const UseProfile = (props) => {
   const [avatar,setAvatar] =useState(true);
   const [userEmail,setUserEmail]=useState('')
   const[userPhoto,setUserPhoto]=useState('')
-  const dispatch = useDispatch();
   const navigate =useNavigate();
-  const usersc = useSelector((state)=>state.Auth)
-
+  
+  
   const HandleLogOut =()=>{
     signOut(UserAuth).then(() => {
-    // toast.success("Logout Sucessfull")
+    toast.success("Logout Sucessfull")
     navigate("/")
   }).catch((error) => {
-    // toast.error(error.massege)
+    toast.error(error.massege)
   })};
 
   useEffect(()=>{
@@ -40,12 +37,22 @@ const UseProfile = (props) => {
     }
   });
 },[])
-useEffect(()=>{
-  onAuthStateChanged(UserAuth, (user) => {
-  if (!user) {
-  dispatch(GET_AUTH_FAILURE_fn());
-  }
-  })},[])
+console.log(useruid,"user id")
+// useEffect(()=>{
+//   onAuthStateChanged(UserAuth, (user) => {
+//   if (!user) {
+//   dispatch(GET_AUTH_FAILURE_fn());
+//   }
+//   })},[])
+//   useEffect(()=>{
+//     onAuthStateChanged(UserAuth, (user) => {
+//         if (user) {
+//               setAvatar(true);
+//         } else {
+//             setAvatar(false)
+//         }
+//     });
+// },[])
   return {
     avatar,
     userToken,

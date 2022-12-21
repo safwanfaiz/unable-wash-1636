@@ -1,8 +1,7 @@
-import { Box,  Breadcrumb,  Stack, Tab, TabList, TabPanel, TabPanels, Tabs, useColorModeValue } from '@chakra-ui/react'
+import { Box,  Stack, Tab, TabList, TabPanel, TabPanels, Tabs, useColorModeValue } from '@chakra-ui/react'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Login } from '../Components/Login'
-import Breadcrums from '../Utils/Breadcrums'
 
 const LoginData =[
     {   "id":1,
@@ -23,12 +22,12 @@ const LoginData =[
 const LoginPage = () => {
   
   return (
-    <Box w={"100%"}  h={896}bg={useColorModeValue("#e7e7e7","red")}>
+    <Box w={"100%"} mt={50} h={896}bg={useColorModeValue("#e7e7e7","red")}>
         
         <Stack textAlign={"center"} alignItems={"center"} justifyContent={"space-evenly"}>
         <Tabs size={"lg"}  isLazy>
         <Stack  textAlign={"center"} alignItems={"center"} justifyContent={"space-evenly"}  >
-            <TabList bg={"white"} px={[null,6,6]} pt={2}mt={10} boxShadow='dark-md'  borderTopRightRadius={7}>
+            <TabList bg={"white"} px={[null,6,6]} pt={2}mt={10} boxShadow='dark-md'  borderTopRadius={7}>
                 <Tab fontWeight={"semibold"} w={230}><Link to={"/login/student"}>STUDENT</Link></Tab>
                 <Tab fontWeight={"semibold"} w={230}><Link to={"/login/company"}>COMPANY</Link></Tab>
             </TabList>

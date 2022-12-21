@@ -155,121 +155,120 @@ function HomePage(props) {
               <div>
                 <img
                   className="partner_logo"
-                  src="https://assets.interntheory.com/creative/home-logo/logo-1.png"
+                  src="https://assets.interntheory.com/creative/home-logo/logo-1.png" alt=""
                 />
               </div>
               <div>
                 <img
                   className="partner_logo"
-                  src="https://assets.interntheory.com/creative/home-logo/logo-2.png"
+                  src="https://assets.interntheory.com/creative/home-logo/logo-2.png" alt=""
                 />
               </div>
               <div>
                 <img
                   className="partner_logo"
-                  src="https://assets.interntheory.com/creative/home-logo/logo-3.png"
+                  src="https://assets.interntheory.com/creative/home-logo/logo-3.png" alt=""
                 />
               </div>
               <div>
                 <img
                   className="partner_logo"
-                  src="https://assets.interntheory.com/creative/home-logo/logo-4.png"
+                  src="https://assets.interntheory.com/creative/home-logo/logo-4.png" alt=""
                 />
               </div>
               <div>
                 <img
                   className="partner_logo"
-                  src="https://assets.interntheory.com/creative/home-logo/logo-6.png"
+                  src="https://assets.interntheory.com/creative/home-logo/logo-6.png" alt=""
                 />
               </div>
               <div>
                 <img
                   className="partner_logo"
-                  src="https://assets.interntheory.com/creative/home-logo/logo-7.png"
+                  src="https://assets.interntheory.com/creative/home-logo/logo-7.png" alt=""
                 />
               </div>
               <div>
                 <img
                   className="partner_logo"
-                  src="https://assets.interntheory.com/creative/home-logo/logo-8.png"
+                  src="https://assets.interntheory.com/creative/home-logo/logo-8.png" alt=""
                 />
               </div>
               <div>
                 <img
                   className="partner_logo"
-                  src="https://assets.interntheory.com/creative/home-logo/logo-9.png"
+                  src="https://assets.interntheory.com/creative/home-logo/logo-9.png" alt=""
+                /> 
+              </div>
+              <div>
+                <img
+                  className="partner_logo"
+                  src="https://assets.interntheory.com/creative/home-logo/logo-10.png" alt=""
                 />
               </div>
               <div>
                 <img
                   className="partner_logo"
-                  src="https://assets.interntheory.com/creative/home-logo/logo-10.png"
+                  src="https://assets.interntheory.com/creative/home-logo/logo-11.png" alt=""
                 />
               </div>
               <div>
                 <img
                   className="partner_logo"
-                  src="https://assets.interntheory.com/creative/home-logo/logo-11.png"
+                  src="https://assets.interntheory.com/creative/home-logo/logo-12.png" alt=""
                 />
               </div>
               <div>
                 <img
                   className="partner_logo"
-                  src="https://assets.interntheory.com/creative/home-logo/logo-12.png"
+                  src="https://assets.interntheory.com/creative/home-logo/logo-13.png" alt=""
                 />
               </div>
               <div>
                 <img
                   className="partner_logo"
-                  src="https://assets.interntheory.com/creative/home-logo/logo-13.png"
+                  src="https://assets.interntheory.com/creative/home-logo/logo-14.png" alt=""
                 />
               </div>
               <div>
                 <img
                   className="partner_logo"
-                  src="https://assets.interntheory.com/creative/home-logo/logo-14.png"
+                  src="https://assets.interntheory.com/creative/home-logo/logo-15.png" alt=""
                 />
               </div>
               <div>
                 <img
                   className="partner_logo"
-                  src="https://assets.interntheory.com/creative/home-logo/logo-15.png"
+                  src="https://assets.interntheory.com/creative/home-logo/logo-16.png" alt=""
                 />
               </div>
               <div>
                 <img
                   className="partner_logo"
-                  src="https://assets.interntheory.com/creative/home-logo/logo-16.png"
+                  src="https://assets.interntheory.com/creative/home-logo/logo-17.png" alt=""
                 />
               </div>
               <div>
                 <img
                   className="partner_logo"
-                  src="https://assets.interntheory.com/creative/home-logo/logo-17.png"
+                  src="https://assets.interntheory.com/creative/home-logo/logo-18.png" alt=""/>
+              </div>
+              <div>
+                <img
+                  className="partner_logo"
+                  src="https://assets.interntheory.com/creative/home-logo/logo-19.png" alt=""
                 />
               </div>
               <div>
                 <img
                   className="partner_logo"
-                  src="https://assets.interntheory.com/creative/home-logo/logo-18.png"
+                  src="https://assets.interntheory.com/creative/home-logo/logo-20.png" alt=""
                 />
               </div>
               <div>
                 <img
                   className="partner_logo"
-                  src="https://assets.interntheory.com/creative/home-logo/logo-19.png"
-                />
-              </div>
-              <div>
-                <img
-                  className="partner_logo"
-                  src="https://assets.interntheory.com/creative/home-logo/logo-20.png"
-                />
-              </div>
-              <div>
-                <img
-                  className="partner_logo"
-                  src="https://assets.interntheory.com/creative/home-logo/logo-21.png"
+                  src="https://assets.interntheory.com/creative/home-logo/logo-21.png" alt=""
                 />
               </div>
             </div>
@@ -287,28 +286,28 @@ function HomePage(props) {
           </div>
           <div className="section_3_body">
             <div className="cart_work_exp">
-              <img src="https://assets.interntheory.com/creative/home-internships/Marketing-Icon.jpg" />
+              <img src="https://assets.interntheory.com/creative/home-internships/Marketing-Icon.jpg" alt="" />
             </div>
             <div className="cart_work_exp">
-              <img src="https://assets.interntheory.com/creative/home-internships/BD.jpg" />
+              <img src="https://assets.interntheory.com/creative/home-internships/BD.jpg"alt="" />
             </div>
             <div className="cart_work_exp">
-              <img src="https://assets.interntheory.com/creative/home-internships/Content-Writing.jpg" />
+              <img src="https://assets.interntheory.com/creative/home-internships/Content-Writing.jpg" alt=""/>
             </div>
             <div className="cart_work_exp">
-              <img src="https://assets.interntheory.com/creative/home-internships/Graphic.jpg" />
+              <img src="https://assets.interntheory.com/creative/home-internships/Graphic.jpg" alt=""/>
             </div>
             <div className="cart_work_exp">
-              <img src="https://assets.interntheory.com/creative/home-internships/Finance.jpg" />
+              <img src="https://assets.interntheory.com/creative/home-internships/Finance.jpg" alt=""/>
             </div>
             <div className="cart_work_exp">
-              <img src="https://assets.interntheory.com/creative/home-internships/HR.jpg" />
+              <img src="https://assets.interntheory.com/creative/home-internships/HR.jpg" alt=""/>
             </div>
             <div className="cart_work_exp">
-              <img src="https://assets.interntheory.com/creative/home-internships/Eng.jpg" />
+              <img src="https://assets.interntheory.com/creative/home-internships/Eng.jpg"alt="" />
             </div>
             <div className="cart_work_exp">
-              <img src="https://assets.interntheory.com/creative/home-internships/All-Internships.jpg" />
+              <img src="https://assets.interntheory.com/creative/home-internships/All-Internships.jpg" alt=""/>
             </div>
           </div>
         </section>
@@ -323,13 +322,13 @@ function HomePage(props) {
           </div>
           <div className="section_4_body">
             <div className="cart_upskill">
-              <img src="https://assets.interntheory.com/creative/home-courses/Homepage-stock.jpg" />
+              <img src="https://assets.interntheory.com/creative/home-courses/Homepage-stock.jpg"alt="" />
             </div>
             <div className="cart_upskill">
-              <img src="https://assets.interntheory.com/creative/home-courses/Homepage-digital.jpg" />
+              <img src="https://assets.interntheory.com/creative/home-courses/Homepage-digital.jpg" alt=""/>
             </div>
             <div className="cart_upskill">
-              <img src="https://assets.interntheory.com/creative/home-courses/Homepage-web.jpg" />
+              <img src="https://assets.interntheory.com/creative/home-courses/Homepage-web.jpg" alt=""/>
             </div>
           </div>
         </section>
@@ -339,7 +338,7 @@ function HomePage(props) {
         <section className="section_5">
           <div>
             <div className="section_5_img">
-              <img src="https://assets.interntheory.com/creative/chart.png" />
+              <img src="https://assets.interntheory.com/creative/chart.png" alt=""/>
             </div>
             <div className="section_5_content">
               <h1>
@@ -359,14 +358,14 @@ function HomePage(props) {
 
         <section className="section_6">
           <div className="slide_nav">
-            <img src="https://image.flaticon.com/icons/png/512/271/271220.png" />
+            <img src="https://image.flaticon.com/icons/png/512/271/271220.png"alt="" />
           </div>
           <div className="section_6_cart">
             <div>
               <div className="section_6_cart_sec_1">
                 <img
                   className="section_6_cart_img"
-                  src="https://assets.interntheory.com/img/testimonial-image/in1.jpg"
+                  src="https://assets.interntheory.com/img/testimonial-image/in1.jpg"alt=""
                 />
                 <h5>Sshikha Bodwaani</h5>
                 <span className="section_6_cart_position">
@@ -387,7 +386,7 @@ function HomePage(props) {
               <div className="section_6_cart_sec_1 section_6_cart_sec_1_2">
                 <img
                   className="section_6_cart_img"
-                  src="https://assets.interntheory.com/img/testimonial-image/in4.jpg"
+                  src="https://assets.interntheory.com/img/testimonial-image/in4.jpg" alt=""
                 />
                 <h5>Harshil Bhadra</h5>
                 <span className="section_6_cart_position">
@@ -397,7 +396,7 @@ function HomePage(props) {
             </div>
           </div>
           <div className="slide_nav">
-            <img src="https://image.flaticon.com/icons/png/512/271/271228.png" />
+            <img src="https://image.flaticon.com/icons/png/512/271/271228.png" alt="" />
           </div>
         </section>
       </div>

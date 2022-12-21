@@ -1,13 +1,22 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./CourseCard.css";
-import { ADD_DATA_TO_CART } from "../Redux/App/action";
+import { ADD_DATA_TO_CART, GET_CART_DATA } from "../Redux/App/action";
+import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 export const CourseCard =({ data }) =>{
   const dispatch = useDispatch();
+  const CARTDATA = useSelector((state) => state.AppReducer.cart);
+  useEffect(() => {
+   if(CARTDATA.length===0){
+    dispatch(GET_CART_DATA())
+   }}, []);
+
   const handleAddToCart = (data) => {
-    dispatch(ADD_DATA_TO_CART({...data})).then((r)=>{
-    });
-    alert(`Item added to Cart`)
+      dispatch(ADD_DATA_TO_CART({...data})).then((r)=>{
+      });
+      toast.success(`${data.name} Added Sucessfully to the cart.`)
+    
   };
   return (
     <>

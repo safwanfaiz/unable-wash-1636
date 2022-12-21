@@ -1,4 +1,4 @@
-import { AlertDialog, AlertDialogBody, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogOverlay, Box, Button, Container, Flex, Image, Spinner, Text, useDisclosure, useToast } from '@chakra-ui/react'
+import { AlertDialog, AlertDialogBody, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogOverlay, Box, Button, Flex, Image, Spinner, Text, useDisclosure } from '@chakra-ui/react'
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
@@ -9,7 +9,7 @@ import {MdLocationPin} from "react-icons/md"
 
 const SingleIntership = () => {
     const {id}=useParams()
-    const {internData,isLoading,isError}=useSelector(store=>store.InternshipReducer)
+    const {internData,isLoading}=useSelector(store=>store.InternshipReducer)
     const dispatch=useDispatch()
     const [current,setCurrent]=useState({})
   

@@ -10,12 +10,12 @@ import IntershipCard from './IntershipCard'
 const Internships = () => {
  
 const dispatch=useDispatch()
- const {internData,isLoading,isError}=useSelector(store=>store.InternshipReducer)
+ const {internData,isLoading}=useSelector(store=>store.InternshipReducer)
 
   const [limit,setLimit]=useState(10)
  
    const [check,setCheck]=useState(0)
-   const [load,setLoad]=useState(false)
+   const [load]=useState(false)
  
 
 
@@ -74,7 +74,7 @@ const dispatch=useDispatch()
      <Box>OR</Box>
 
      <InputGroup>
-      <InputRightElement width={"40%"} justifyItems="end" children={<Button bg={"#087CDD"} color="white" padding={"0px 40px"} fontSize="14px" h={"30px"}>SEARCH</Button>}  />
+      <InputRightElement width={"40%"} justifyItems="end" zIndex={1} children={<Button bg={"#087CDD"} color="white" padding={"0px 40px"} fontSize="14px" h={"30px"}>SEARCH</Button>}  />
       <Input type={"text"} placeholder="Search..." border={"none"} borderBottom="2px solid #d1d1d1" borderRadius={"none"}  _focusVisible="none"  />
      </InputGroup>
      

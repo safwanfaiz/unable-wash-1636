@@ -1,90 +1,69 @@
-import React,{ useEffect, useRef, useState }  from 'react'
+import React,{ useEffect,  useState }  from 'react'
 import {Flex,Box,FormControl,FormLabel,Input,Stack,Button, Heading, Text, useColorModeValue, Container, Image, SimpleGrid, VStack, HStack,} from '@chakra-ui/react';
 import { useDispatch, useSelector,  } from 'react-redux';
-import {  EDIT_DATA, EDIT_DATA_AGAIN, EDIT_DATA_COMPANY_COURSE, EDIT_DATA__STUDENT_COURSE, GET_PRODUCTS} from '../Redux/App/action';
+import {   EDIT_DATA__STUDENT_COURSE, } from '../Redux/App/action';
 import { toast } from 'react-toastify';
 import { useNavigate, useParams } from 'react-router-dom';
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { MdOutlineBookmarkAdded } from "react-icons/md";
-import { GrFormView, GrFormViewHide } from "react-icons/gr";
-
 export const EditCartData =()=> {
   const Priviousdata = "Privious data will Remain same if Seasonfild gonna be Empty."
     const[name,setname]=useState("");
     const[desc,setDesc]=useState("");
     const [image, setImage]= useState("")
     const [newPrice, setnewPrice]= useState("")
-    const [oldPrice, setoldPrice]= useState("")
+    const [oldPrice, setOldPrice]= useState("")
     const[previousdata,setPreviousData]=useState({});
     const {id} =useParams();
-    // const [viewPrevData, setviewPrevData]= useState(false)
-    // const [viewCruntData, setviewCruntData]= useState(false)
+    const PRODUCTS= useSelector((state)=> state.AppReducer.products)
+    const dispatch = useDispatch();
+    const formclear =()=>{
+    navigate("/admin")
+    }
 
-    const PRODUCTS= useSelector((state)=> state.AppReducer.company)
-// const handelviewPrevData=()=>{
-//   setviewPrevData(true);
-// }
-// const handelviewCruntData=()=>{
-//   setviewCruntData(false);
-// }
-// const handelHidePrevData=()=>{
-//   setviewPrevData(true);
-// }
-// const handelHideCruntData=()=>{
-//   setviewCruntData(false);
-// }
-const dispatch = useDispatch();
-const formclear =()=>{
-navigate("/admin")
-}
-
- const navigate =useNavigate();
- const handelUpdate =()=>{
+    const navigate =useNavigate();
+    const handelUpdate =()=>{
       const payload={
       }
       if(name !== ""){
-        payload.name = name 
-     }
-     if(desc
-      !== ""){
-       payload.description = desc
-     }
-     if(image !== ""){
-       payload.image = image
-    }
-    if(newPrice !== ""){
-      payload.season =  newPrice
-    }
-    if(oldPrice !== ""){
-      payload.season =  oldPrice
-    }
-      dispatch(EDIT_DATA_COMPANY_COURSE(id,payload))
-      .then(()=>{
-      });
- 
-      dispatch(EDIT_DATA__STUDENT_COURSE(id,payload))
-      .then(()=>{
+          payload.name = name 
+      }
+      if(desc
+        !== ""){
+        payload.desc = desc
+      }
+      if(image !== ""){
+        payload.image = image
+      }
+      if(newPrice !== ""){
+        payload.newPrice=  newPrice
+      }
+      if(oldPrice !== ""){
+        payload.oldPrice =  oldPrice
+      } 
+        dispatch(EDIT_DATA__STUDENT_COURSE(id,payload))
+        .then(()=>{
 
-      });
-      navigate("/admin")
-   
+        });
+        toast.success("Course Edited sucessfully")
+        navigate("/admin")
+    
     }
     useEffect(()=>{
       if(id){
           const previousId = PRODUCTS.find(PRODUCTS=> PRODUCTS.id === Number(id))
             setPreviousData(previousId)
           
-      }},[id])
-console.log(previousdata,"dataP")
+      }},[])
   return (
     <SimpleGrid  mt={20} columns={[1,3,3]}>
 
 <HStack  justify={"center"} align={"center"}>
   <VStack>
-  <Text  color={"red.500"} as={"b"} textAlign={"center"} fontSize={"2xl"} zIndex={5}>Privous Data</Text>
+  <Text  color={"red.500"} as={"b"} textAlign={"center"} fontSize={"2xl"} >Privous Data</Text>
   <>
    
-        <VStack  bg={"whiteAlpha.800"} h={450} color={"blackAlpha.900"} px={10} alignItems={"center"} justifyContent={"center"} boxShadow='md' borderRadius={5}>
+        <VStack  bg={"whiteAlpha.800"} h={520} color={"blackAlpha.900"} px={10} alignItems={"center"} justifyContent={"center"} boxShadow='md' borderRadius={5}>
                     <>
                           <Image borderRadius={"5px"} border={"2px solid RGBA(0, 0, 0, 80)"} m={0} width={300} height={169} boxShadow={"xl"} src={previousdata.image} alt={previousdata.name}/>
                           <VStack>
@@ -100,20 +79,17 @@ console.log(previousdata,"dataP")
                          <FormControl> <FormLabel color={"black"} as="b">onewPrice</FormLabel> <Box  borderRadius={"5px"} width={"270px"} border={"1px solid RGBA(0, 0, 0, 0.16)"}  h={"30px"} overflow={"auto"}>
                          <Text px={5} textAlign={"left"} as={"b"} color={"blackAlpha.600"}  > {previousdata.newPrice}</Text></Box></FormControl>
                           </VStack>
-                    </>
-                        </VStack>
-  
-    
-  </>
+                       </> 
+                       </VStack></>
                         </VStack> 
                         </HStack>
 
 
 
-<HStack  justify={"center"} align={"center"}>
-  <VStack>
-<Text  color={"blue.500"} as={"b"} textAlign={"center"} fontSize={"2xl"} zIndex={5}>New Data</Text>
-<VStack  bg={"whiteAlpha.800"} h={450} color={"blackAlpha.900"} px={10} alignItems={"center"} justifyContent={"center"} boxShadow='md' borderRadius={5}>
+              <HStack  justify={"center"} align={"center"}>
+                <VStack>
+              <Text  color={"blue.500"} as={"b"} textAlign={"center"} fontSize={"2xl"} zIndex={5}>New Data</Text>
+              <VStack  bg={"whiteAlpha.800"} h={520} color={"blackAlpha.900"} px={10} alignItems={"center"} justifyContent={"center"} boxShadow='md' borderRadius={5}>
               <>
                     <Image  borderRadius={"5px"} border={"2px solid RGBA(0, 0, 0, 80)"} m={0} width={300} height={169} boxShadow={"xl"}  src={image} alt={name}/>
                     <VStack>
@@ -164,7 +140,7 @@ console.log(previousdata,"dataP")
                 </FormControl>
             <FormControl id="Image" >
               <FormLabel>Image</FormLabel>
-              <Input type="Text" value={image} onChange={(e)=>Image(e.target.value)}  />
+              <Input type="Text" value={image} onChange={(e)=>setImage(e.target.value)}  />
             </FormControl>
             <FormControl id="Description" >
                   <FormLabel>Description</FormLabel>
@@ -172,11 +148,11 @@ console.log(previousdata,"dataP")
                 </FormControl>
             <FormControl id="Time" >
               <FormLabel>Old Price</FormLabel>
-              <Input type="number" value={oldPrice} onChange={(e)=>setoldPrice(e.target.value)} />
+              <Input type="number" value={oldPrice} onChange={(e)=>setOldPrice(e.target.value)} />
             </FormControl>   
             <FormControl id="Time" >
               <FormLabel>new Price</FormLabel>
-              <Input type="number" value={newPrice} onChange={(e)=>setoldPrice(e.target.value)} />
+              <Input type="number" value={newPrice} onChange={(e)=>setnewPrice(e.target.value)} />
             </FormControl> 
             <Stack pt={5} spacing={6} direction={['column', 'row']}>
           <Box><Button leftIcon={<IoMdArrowRoundBack/>}
